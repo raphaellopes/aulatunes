@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { colors } from './colors';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -11,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: sans-serif;
     text-rendering: optimizeLegibility !important;
+    background-color: ${colors.light_10};
     -webkit-font-smoothing: antialiased !important;
   }
 `;
