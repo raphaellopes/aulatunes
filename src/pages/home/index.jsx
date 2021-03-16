@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Move to a wrapper component
+// @TODO: Rename this page to Main and implements the routes here
 import { Header, Container } from '../../components';
 
 const Home = () => (
