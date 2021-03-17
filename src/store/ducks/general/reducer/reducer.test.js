@@ -1,4 +1,4 @@
-import { GeneralCreators as actions, GeneralTypes as Types } from '../actions';
+import { GeneralTypes as Types } from '../actions';
 import * as reducer from './index';
 
 describe('redux | general | reducer', () => {

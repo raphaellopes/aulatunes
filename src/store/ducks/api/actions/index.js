@@ -11,8 +11,9 @@ export const ApiCreators = {
     type: ApiTypes.REQUEST,
     payload,
   }),
-  data: (payload) => ({
+  data: (payload, meta) => ({
     type: ApiTypes.DATA,
     payload,
+    meta,
   }),
 };

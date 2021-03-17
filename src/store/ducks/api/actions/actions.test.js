@@ -11,11 +11,13 @@ describe('redux | api | actions', () => {
   });
 
   test('should create an action for send data', () => {
-    const payload = 'songs';
+    const payload = [{ id: 'ID1' }];
+    const meta = 'songs';
     const expected = {
       type: Types.DATA,
       payload,
+      meta,
     };
-    expect(actions.data(payload)).toEqual(expected);
+    expect(actions.data(payload, meta)).toEqual(expected);
   });
 });
