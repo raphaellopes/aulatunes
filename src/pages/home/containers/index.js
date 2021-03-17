@@ -1,19 +1,20 @@
 import React from 'react';
+
 import { Navigation, Input } from '../../../components';
+import { useMenuHook } from '../../../store/ducks/general';
 
 export const HomeControlContainer = () => {
-// mocks
-  const menuOptions = [
-    { label: 'Albums', value: 'album', variant: 'primary' },
-    { label: 'Songs', value: 'songs', variant: 'default' },
-    { label: 'Favorites', value: 'favorites', variant: 'default' },
-  ];
+  const menu = useMenuHook();
 
-  const handleClickMenuOption = (value) => console.log('handleClickMenuOption', { value });
+  const handleClickMenuOption = (value) => menu.setActive(value);
 
   return (
     <>
-      <Navigation options={menuOptions} onClickOption={handleClickMenuOption} />
+      <Navigation
+        active={menu.data.active}
+        options={menu.data.options}
+        onClickOption={handleClickMenuOption}
+      />
       <Input placeholder="Search" />
     </>
   );

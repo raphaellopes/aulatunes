@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import general from './general';
+import { generalReducer } from './general';
 
 export default combineReducers({
-  general,
+  general: generalReducer,
 });
