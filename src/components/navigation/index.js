@@ -3,7 +3,7 @@ import { Container, MenuItem } from './styles';
 
 export const Navigation = () => (
   <Container>
-    <MenuItem>Albuns</MenuItem>
+    <MenuItem variant="primary">Albuns</MenuItem>
     <MenuItem>Songs</MenuItem>
     <MenuItem>Favorites</MenuItem>
   </Container>
