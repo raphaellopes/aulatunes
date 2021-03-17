@@ -1,20 +1,12 @@
 import React from 'react';
 
 import {
-  Header, Container, Navigation, Input, CardList, CardMusic,
+  Header, Container, CardList, CardMusic,
 } from '../../components';
+import { HomeControlContainer } from './containers';
 
 // @TODO: Rename this page to Main and implements the routes here
 const Home = () => {
-  // mocks
-  const menuOptions = [
-    { label: 'Albums', value: 'album', variant: 'primary' },
-    { label: 'Songs', value: 'songs', variant: 'default' },
-    { label: 'Favorites', value: 'favorites', variant: 'default' },
-  ];
-
-  const handleClickMenuOption = (value) => console.log('handleClickMenuOption', { value });
-
   const cards = [
     {
       id: 'a1',
@@ -53,8 +45,7 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        <Navigation options={menuOptions} onClickOption={handleClickMenuOption} />
-        <Input placeholder="Search" />
+        <HomeControlContainer />
         {renderList}
       </Container>
     </>
