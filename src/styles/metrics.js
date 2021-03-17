@@ -9,9 +9,17 @@ export const metrics = {
     md: '10px',
     lg: '16px',
   },
+  margin: {
+    md: '10px',
+  },
   screenSizes,
   media: {
     sm: `(min-width: ${screenSizes.sm})`,
     md: `(min-width: ${screenSizes.md})`,
+  },
+  borderRadius: {
+    sm: '5px',
+    md: '10px',
+    lg: '20px',
   },
 };
