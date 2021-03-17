@@ -11,6 +11,7 @@ export const metrics = {
   },
   margin: {
     md: '10px',
+    lg: '16px',
   },
   screenSizes,
   media: {
