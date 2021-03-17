@@ -6,7 +6,7 @@ import { colors, metrics } from '../../styles';
 const buttonStyle = theme.variants('mode', 'variant', {
   default: {
     light: `
-      border: 1px solid ${colors.dark_10};
+      border: 1px solid ${colors.light_20};
       color: ${colors.dark_10};
     `,
   },

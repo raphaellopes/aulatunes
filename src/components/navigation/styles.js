@@ -4,6 +4,7 @@ import { Button } from '../buttons';
 
 export const Container = styled.nav`
   display: flex;
+  padding: ${metrics.padding.lg} 0;
 `;
 
 export const MenuItem = styled(Button)`
