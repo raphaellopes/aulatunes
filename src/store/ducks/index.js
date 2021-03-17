@@ -7,7 +7,7 @@ import { albumsReducer, albumsSagasWatcher } from './albums';
 
 export default combineReducers({
   general: generalReducer,
-  albuns: albumsReducer,
+  albums: albumsReducer,
 });
 
 export function* rootSagas() {

@@ -4,25 +4,29 @@ import {
 } from '../../components';
 import { useApiHooks } from '../../store/ducks/api';
 import { useMenuHook } from '../../store/ducks/general';
+import { useAlbumsHook } from '../../store/ducks/albums';
 import { ControlContainer, ListContainer } from './containers';
 
 const Home = () => {
   const api = useApiHooks();
-  const menu = useMenuHook();
+  const { data: menu } = useMenuHook();
+  const { data: albums } = useAlbumsHook();
+
+  const cards = menu.active === 'albums' ? albums : [];
 
   useEffect(() => {
-    const { active } = menu.data;
-    if (active !== 'favorites') {
-      api.request(menu.data.active);
+    const { active } = menu;
+    if (active !== 'favorites' && !cards.length) {
+      api.request(menu.active);
     }
-  }, [menu.data.active]);
+  }, [menu.active]);
 
   return (
     <>
       <Header />
       <Container>
         <ControlContainer />
-        <ListContainer />
+        <ListContainer cards={cards} />
       </Container>
     </>
   );
