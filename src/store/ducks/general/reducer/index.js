@@ -1,7 +1,7 @@
-import { GeneralTypes } from './actions';
+import { GeneralTypes } from '../actions';
 
 // reducers
-const initialState = {
+export const initialState = {
   menu: {
     active: 'albums',
     options: [
