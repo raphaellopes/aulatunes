@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardContent, CardImage, CardImagePlaceholder,
+  Card, CardContent, CardImage, CardImagePlaceholder, CardTitle, CardSubtitle,
 } from './base';
 
 export const CardMusic = ({
@@ -16,8 +16,8 @@ export const CardMusic = ({
       height={60}
     />
     <CardContent>
-      <h2>{title}</h2>
-      <p>{subtitle}</p>
+      <CardTitle>{title}</CardTitle>
+      <CardSubtitle>{subtitle}</CardSubtitle>
     </CardContent>
   </Card>
 );

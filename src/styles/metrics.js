@@ -10,6 +10,7 @@ export const metrics = {
     lg: '16px',
   },
   margin: {
+    sm: '5px',
     md: '10px',
     lg: '16px',
   },
@@ -22,5 +23,10 @@ export const metrics = {
     sm: '5px',
     md: '10px',
     lg: '20px',
+  },
+  font: {
+    sm: '14px',
+    md: '16px',
+    lg: '22px',
   },
 };

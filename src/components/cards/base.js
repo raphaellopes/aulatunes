@@ -7,6 +7,7 @@ export const Card = styled.div`
   background-color: ${colors.light};
   padding: ${metrics.padding.md};
   border-radius: ${metrics.borderRadius.md};
+  box-shadow: ${colors.shadow};
 `;
 
 export const CardContent = styled.div`
@@ -16,6 +17,17 @@ export const CardContent = styled.div`
 export const CardImage = styled(LazyLoadImage)`
   margin-right: ${metrics.margin.md};
   border-radius: ${metrics.borderRadius.sm};
+`;
+
+export const CardTitle = styled.h2`
+  margin-bottom: ${metrics.margin.sm};
+  color: ${colors.dark_10};
+  font-size: ${metrics.font.lg};
+`;
+
+export const CardSubtitle = styled.p`
+  color: ${colors.light_30};
+  font-size: ${metrics.font.sm};
 `;
 
 // @TODO: add size prop
@@ -30,6 +42,7 @@ export const CardImagePlaceholder = styled.span`
 
 export const CardList = styled.div`
   margin-top: ${metrics.margin.lg};
+
   ${Card} {
     &:not(:last-child) {
       margin-bottom: ${metrics.margin.md};
