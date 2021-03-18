@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Header, Container,
 } from '../../components';
@@ -9,10 +9,12 @@ import { useSongsHook } from '../../store/ducks/songs';
 import { ControlComponent, ListComponent } from './components';
 
 const Home = () => {
+  const [search, setSearch] = useState('');
   const api = useApiHooks();
   const { data: menu, setActive: setMenuActive } = useMenuHook();
   const { data: albums, loading: albumsLoading } = useAlbumsHook();
   const { data: songs, loading: songsLoading } = useSongsHook();
+  console.log('>>>', { search });
 
   const loading = albumsLoading || songsLoading;
   const cards = () => {
@@ -43,6 +45,7 @@ const Home = () => {
           menuOptions={menu.options}
           menuOptionActive={menu.active}
           onClickMenuOption={handleClickMenuOption}
+          onChangeSearch={setSearch}
         />
         <ListComponent loading={loading} cards={cards()} />
       </Container>
