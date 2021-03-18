@@ -31,13 +31,6 @@ export const CardSubtitle = styled.p`
   font-size: ${metrics.font.sm};
 `;
 
-// @TODO: add size prop
-export const CardImagePlaceholder = styled(Placeholder)`
-  margin-right: ${metrics.margin.md};
-  width: 60px;
-  height: 60px;
-`;
-
 export const CardList = styled.div`
   margin-top: ${metrics.margin.lg};
 
@@ -46,4 +39,21 @@ export const CardList = styled.div`
       margin-bottom: ${metrics.margin.md};
     }
   }
+`;
+
+// @TODO: add size prop
+export const CardImagePlaceholder = styled(Placeholder)`
+  margin-right: ${metrics.margin.md};
+  width: 60px;
+  height: 60px;
+`;
+
+export const CardTitlePlaceholder = styled(Placeholder)`
+  height: 26px;
+  width: 90%;
+`;
+
+export const CardSubtitlePlaceholder = styled(Placeholder)`
+  height: 16px;
+  width: 70%;
 `;

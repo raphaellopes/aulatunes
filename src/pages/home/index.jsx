@@ -10,9 +10,10 @@ import { ControlComponent, ListComponent } from './components';
 const Home = () => {
   const api = useApiHooks();
   const { data: menu, setActive: setMenuActive } = useMenuHook();
-  const { data: albums } = useAlbumsHook();
+  const { data: albums, loading: albumsLoading } = useAlbumsHook();
 
   const cards = menu.active === 'albums' ? albums : [];
+  const loading = albumsLoading;
 
   useEffect(() => {
     const { active } = menu;
@@ -32,7 +33,7 @@ const Home = () => {
           menuOptionActive={menu.active}
           onClickMenuOption={handleClickMenuOption}
         />
-        <ListComponent cards={cards} />
+        <ListComponent loading={loading} cards={cards} />
       </Container>
     </>
   );
