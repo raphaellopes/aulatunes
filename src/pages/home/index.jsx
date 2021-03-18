@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Header, Container,
-} from '../../components';
+import { Container } from '../../components';
 import { useApiHooks } from '../../store/ducks/api';
 import { useMenuHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
@@ -55,23 +53,20 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Header />
-      <Container>
-        <ControlComponent
-          menuOptions={menu.options}
-          menuOptionActive={menu.active}
-          onClickMenuOption={setMenuActive}
-          onChangeSearch={setSearch}
-        />
-        <ListComponent
-          loading={loading}
-          cards={cards().map(mapFavorite).filter(searchFilter)}
-          emptyText={`No results for ${menu.active}`}
-          onClickFavorite={handleClickFavorite}
-        />
-      </Container>
-    </>
+    <Container>
+      <ControlComponent
+        menuOptions={menu.options}
+        menuOptionActive={menu.active}
+        onClickMenuOption={setMenuActive}
+        onChangeSearch={setSearch}
+      />
+      <ListComponent
+        loading={loading}
+        cards={cards().map(mapFavorite).filter(searchFilter)}
+        emptyText={`No results for ${menu.active}`}
+        onClickFavorite={handleClickFavorite}
+      />
+    </Container>
   );
 };
 
