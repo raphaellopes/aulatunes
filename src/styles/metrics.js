@@ -24,9 +24,4 @@ export const metrics = {
     md: '10px',
     lg: '20px',
   },
-  font: {
-    sm: '14px',
-    md: '16px',
-    lg: '22px',
-  },
 };

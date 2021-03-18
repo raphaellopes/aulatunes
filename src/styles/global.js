@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from './colors';
+import { font } from './font';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -10,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: sans-serif;
+    font-family: ${font.family.main};
     text-rendering: optimizeLegibility !important;
     background-color: ${colors.light_10};
     -webkit-font-smoothing: antialiased !important;

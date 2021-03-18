@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { colors, metrics } from '../../styles';
 import { Placeholder } from '../placeholder';
+import { Title, TextLabel } from '../thypography';
 
 export const Card = styled.div`
   display: flex;
@@ -20,15 +21,13 @@ export const CardImage = styled(LazyLoadImage)`
   border-radius: ${metrics.borderRadius.sm};
 `;
 
-export const CardTitle = styled.h2`
+export const CardTitle = styled(Title)`
   margin-bottom: ${metrics.margin.sm};
   color: ${colors.dark_10};
-  font-size: ${metrics.font.lg};
 `;
 
-export const CardSubtitle = styled.p`
+export const CardSubtitle = styled(TextLabel)`
   color: ${colors.light_30};
-  font-size: ${metrics.font.sm};
 `;
 
 export const CardList = styled.div`

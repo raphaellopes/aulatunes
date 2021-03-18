@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import theme from 'styled-theming';
-import { colors, metrics } from '../../styles';
+import { colors, metrics, font } from '../../styles';
 
 const buttonStyle = theme.variants('mode', 'variant', {
   default: {
@@ -24,7 +24,8 @@ export const Button = styled.button`
   padding: ${metrics.padding.md};
   border-radius: ${metrics.borderRadius.lg};
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: ${font.weight.bold};
+  font-size: ${font.size.sm};
   ${buttonStyle}
 `;
 

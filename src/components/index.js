@@ -6,3 +6,4 @@ export * from './layout';
 export * from './navigation';
 export * from './placeholder';
 export * from './toolbar';
+export * from './thypography';
