@@ -47,7 +47,11 @@ const Home = () => {
           onClickMenuOption={handleClickMenuOption}
           onChangeSearch={setSearch}
         />
-        <ListComponent loading={loading} cards={cards()} />
+        <ListComponent
+          loading={loading}
+          cards={cards()}
+          emptyText={`No results for ${menu.active}`}
+        />
       </Container>
     </>
   );

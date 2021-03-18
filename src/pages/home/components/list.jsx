@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CardList, CardMusic, CardPlaceholder } from '../../../components';
+import {
+  CardList, CardMusic, CardPlaceholder, Text,
+} from '../../../components';
 
-export const ListComponent = ({ cards, loading }) => {
+export const ListComponent = ({ cards, loading, emptyText }) => {
   const renderLoading = (
     <>
       <CardPlaceholder />
@@ -22,9 +24,12 @@ export const ListComponent = ({ cards, loading }) => {
     />
   ));
 
+  const renderEmpty = !loading && !cards.length && (<Text>{emptyText}</Text>);
+
   return (
     <CardList>
       {loading ? renderLoading : renderCards}
+      {renderEmpty}
     </CardList>
   );
 };
@@ -37,4 +42,9 @@ ListComponent.propTypes = {
     image: PropTypes.string,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
+  emptyText: PropTypes.string,
+};
+
+ListComponent.defaultProps = {
+  emptyText: '',
 };
