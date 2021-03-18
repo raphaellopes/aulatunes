@@ -23,7 +23,7 @@ export const ListComponent = ({
         src: card.image,
         alt: card.name,
       }}
-      onClickCard={() => onClickFavorite(card.id)}
+      onClickCard={() => onClickFavorite(card.id, card.group)}
     />
   ));
 

@@ -24,9 +24,9 @@ const Home = () => {
   const cards = () => {
     switch (menu.active) {
       case 'albums':
-        return albums.filter(searchFilter);
+        return albums;
       case 'songs':
-        return songs.filter(searchFilter);
+        return songs;
       case 'favorites':
         return [
           ...albums.filter(favoritesFilter('albums')),
@@ -39,19 +39,16 @@ const Home = () => {
 
   useEffect(() => {
     const { active } = menu;
-    if (active !== 'favorites' && !cards().length) {
+    if (active !== 'favorites' && (!albums.length || !songs.length)) {
       api.request(menu.active);
     }
   }, [menu.active]);
 
-  const handleClickMenuOption = (value) => setMenuActive(value);
-
-  const handleClickFavorite = (value) => {
-    const meta = menu.active;
-    if (favorites.data[meta].includes(value)) {
-      favorites.remove(value, meta);
+  const handleClickFavorite = (value, group) => {
+    if (favorites.data[group].includes(value)) {
+      favorites.remove(value, group);
     } else {
-      favorites.add(value, meta);
+      favorites.add(value, group);
     }
   };
 
@@ -62,12 +59,12 @@ const Home = () => {
         <ControlComponent
           menuOptions={menu.options}
           menuOptionActive={menu.active}
-          onClickMenuOption={handleClickMenuOption}
+          onClickMenuOption={setMenuActive}
           onChangeSearch={setSearch}
         />
         <ListComponent
           loading={loading}
-          cards={cards()}
+          cards={cards().filter(searchFilter)}
           emptyText={`No results for ${menu.active}`}
           onClickFavorite={handleClickFavorite}
         />

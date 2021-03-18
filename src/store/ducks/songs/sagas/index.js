@@ -25,6 +25,7 @@ export function* songsData({ payload, meta }) {
       artist,
       image: item['im:image'][1].label,
       searchKey: kebabCase([name, artist].join(' ')),
+      group: 'songs',
     };
   });
 

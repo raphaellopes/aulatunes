@@ -51,6 +51,7 @@ describe('redux | songs | sagas', () => {
             artist: 'Some Artist',
             image: 'http://some-image-2',
             searchKey: 'some-name-some-artist',
+            group: 'songs',
           },
         ]),
       );
