@@ -19,10 +19,11 @@ const Home = () => {
 
   const loading = albumsLoading || songsLoading;
   const searchFilter = ({ searchKey }) => searchKey.includes(search);
-  const favoritesFilter = (meta) => ({ id }) => favorites.data[meta].includes(id);
+  const allFavorites = [...favorites.data.albums, ...favorites.data.songs];
+  const favoritesFilter = ({ id }) => allFavorites.includes(id);
   const mapFavorite = (item) => ({
     ...item,
-    isFavorite: [...favorites.data.albums, ...favorites.data.songs].includes(item.id),
+    isFavorite: allFavorites.includes(item.id),
   });
 
   const cards = () => {
@@ -32,10 +33,7 @@ const Home = () => {
       case 'songs':
         return songs;
       case 'favorites':
-        return [
-          ...albums.filter(favoritesFilter('albums')),
-          ...songs.filter(favoritesFilter('songs')),
-        ];
+        return [...albums, ...songs].filter(favoritesFilter);
       default:
         return [];
     }
