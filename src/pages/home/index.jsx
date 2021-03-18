@@ -5,11 +5,11 @@ import {
 import { useApiHooks } from '../../store/ducks/api';
 import { useMenuHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
-import { ControlComponent, ListContainer } from './components';
+import { ControlComponent, ListComponent } from './components';
 
 const Home = () => {
   const api = useApiHooks();
-  const { data: menu, setActive } = useMenuHook();
+  const { data: menu, setActive: setMenuActive } = useMenuHook();
   const { data: albums } = useAlbumsHook();
 
   const cards = menu.active === 'albums' ? albums : [];
@@ -21,7 +21,7 @@ const Home = () => {
     }
   }, [menu.active]);
 
-  const handleClickMenuOption = (value) => setActive(value);
+  const handleClickMenuOption = (value) => setMenuActive(value);
 
   return (
     <>
@@ -32,7 +32,7 @@ const Home = () => {
           menuOptionActive={menu.active}
           onClickMenuOption={handleClickMenuOption}
         />
-        <ListContainer cards={cards} />
+        <ListComponent cards={cards} />
       </Container>
     </>
   );

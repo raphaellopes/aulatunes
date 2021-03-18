@@ -4,7 +4,7 @@ import {
   CardList, CardMusic,
 } from '../../../components';
 
-export const ListContainer = ({ cards }) => (
+export const ListComponent = ({ cards }) => (
   <CardList>
     {cards.map((card) => (
       <CardMusic
@@ -20,7 +20,7 @@ export const ListContainer = ({ cards }) => (
   </CardList>
 );
 
-ListContainer.propTypes = {
+ListComponent.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
