@@ -1,6 +1,7 @@
 import {
   all, put, takeLatest,
 } from 'redux-saga/effects';
+import { kebabCase } from '../../../../utils';
 import { ApiTypes } from '../../api';
 import { AlbumsCreators as actions } from '../actions';
 
@@ -15,12 +16,17 @@ export function* albumsData({ payload, meta }) {
   if (!isSameReducer(meta)) return;
   yield put(actions.status(false));
 
-  const data = payload.map((item) => ({
-    id: item.id.attributes['im:id'],
-    name: item['im:name'].label,
-    artist: item['im:artist'].label,
-    image: item['im:image'][1].label,
-  }));
+  const data = payload.map((item) => {
+    const name = item['im:name'].label;
+    const artist = item['im:artist'].label;
+    return {
+      id: item.id.attributes['im:id'],
+      name,
+      artist,
+      image: item['im:image'][1].label,
+      searchKey: kebabCase([name, artist].join(' ')),
+    };
+  });
 
   yield put(actions.data(data));
 }

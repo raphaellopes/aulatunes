@@ -50,6 +50,7 @@ describe('redux | albums | sagas', () => {
             name: 'Some Name',
             artist: 'Some Artist',
             image: 'http://some-image-2',
+            searchKey: 'some-name-some-artist',
           },
         ]),
       );

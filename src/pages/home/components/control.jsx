@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { kebabCase } from '../../../utils';
 import { Navigation, Input } from '../../../components';
 
 export const ControlComponent = ({
@@ -11,9 +12,7 @@ export const ControlComponent = ({
   const handleChangeSearch = (event) => {
     const { value } = event.target;
     setSearch(value);
-    if (value.length > 2) {
-      onChangeSearch(value);
-    }
+    onChangeSearch(kebabCase(value));
   };
 
   return (

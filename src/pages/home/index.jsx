@@ -14,13 +14,13 @@ const Home = () => {
   const { data: menu, setActive: setMenuActive } = useMenuHook();
   const { data: albums, loading: albumsLoading } = useAlbumsHook();
   const { data: songs, loading: songsLoading } = useSongsHook();
-  console.log('>>>', { search });
 
   const loading = albumsLoading || songsLoading;
+  const searchFilter = ({ searchKey }) => searchKey.includes(search);
   const cards = () => {
     switch (menu.active) {
       case 'albums':
-        return albums;
+        return albums.filter(searchFilter);
       case 'songs':
         return songs;
       default:
