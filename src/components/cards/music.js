@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardContent, CardImage, CardImagePlaceholder, CardTitle, CardSubtitle,
+  Card, CardContent, CardImage, CardImagePlaceholder, CardTitle, CardSubtitle, cardProps,
 } from './base';
 
 export const CardMusic = ({
-  title, subtitle, image, onClickCard,
+  title, subtitle, image, onClickCard, variant,
 }) => (
-  <Card onClick={onClickCard}>
+  <Card onClick={onClickCard} variant={variant}>
     <CardImage
       src={image.src}
       alt={image.alt}
@@ -23,6 +23,7 @@ export const CardMusic = ({
 );
 
 CardMusic.propTypes = {
+  ...cardProps,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   image: PropTypes.shape({

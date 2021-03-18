@@ -7,7 +7,6 @@ import { ApiCreators as actions, ApiTypes as Types } from '../actions';
 export function* apiFetch({ payload }) {
   try {
     const { data } = yield call(api.get, `top${payload}/limit=100/json`);
-    console.log('apiFetchSaga >>>', { data });
 
     yield put(
       actions.data(

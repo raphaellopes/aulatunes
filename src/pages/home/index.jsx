@@ -20,6 +20,10 @@ const Home = () => {
   const loading = albumsLoading || songsLoading;
   const searchFilter = ({ searchKey }) => searchKey.includes(search);
   const favoritesFilter = (meta) => ({ id }) => favorites.data[meta].includes(id);
+  const mapFavorite = (item) => ({
+    ...item,
+    isFavorite: [...favorites.data.albums, ...favorites.data.songs].includes(item.id),
+  });
 
   const cards = () => {
     switch (menu.active) {
@@ -64,7 +68,7 @@ const Home = () => {
         />
         <ListComponent
           loading={loading}
-          cards={cards().filter(searchFilter)}
+          cards={cards().map(mapFavorite).filter(searchFilter)}
           emptyText={`No results for ${menu.active}`}
           onClickFavorite={handleClickFavorite}
         />

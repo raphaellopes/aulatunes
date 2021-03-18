@@ -19,6 +19,7 @@ export const ListComponent = ({
       key={`card-item-${card.id}`}
       title={card.name}
       subtitle={`By ${card.artist}`}
+      variant={card.isFavorite ? 'secondary' : 'default'}
       image={{
         src: card.image,
         alt: card.name,

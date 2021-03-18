@@ -4,5 +4,5 @@ import { colors, metrics } from '../../styles';
 export const Placeholder = styled.span`
   display: inline-block;
   background-color: ${colors.light_20};
-  border-radius: ${metrics.borderRadius.md};
+  border-radius: ${metrics.borderRadius.sm};
 `;
