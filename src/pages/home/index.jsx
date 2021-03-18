@@ -5,15 +5,17 @@ import {
 import { useApiHooks } from '../../store/ducks/api';
 import { useMenuHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
+import { useSongsHook } from '../../store/ducks/songs';
 import { ControlComponent, ListComponent } from './components';
 
 const Home = () => {
   const api = useApiHooks();
   const { data: menu, setActive: setMenuActive } = useMenuHook();
   const { data: albums, loading: albumsLoading } = useAlbumsHook();
+  const { data: songs, loading: songsLoading } = useSongsHook();
 
-  const cards = menu.active === 'albums' ? albums : [];
-  const loading = albumsLoading;
+  const cards = menu.active === 'albums' ? albums : songs;
+  const loading = albumsLoading || songsLoading;
 
   useEffect(() => {
     const { active } = menu;
