@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { colors, metrics } from '../../styles';
+import { Placeholder } from '../placeholder';
 
 export const Card = styled.div`
   display: flex;
@@ -31,10 +32,7 @@ export const CardSubtitle = styled.p`
 `;
 
 // @TODO: add size prop
-export const CardImagePlaceholder = styled.span`
-  display: inline-block;
-  background-color: ${colors.light_20};
-  border-radius: ${metrics.borderRadius.md};
+export const CardImagePlaceholder = styled(Placeholder)`
   margin-right: ${metrics.margin.md};
   width: 60px;
   height: 60px;
