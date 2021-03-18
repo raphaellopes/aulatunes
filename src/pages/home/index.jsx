@@ -14,12 +14,21 @@ const Home = () => {
   const { data: albums, loading: albumsLoading } = useAlbumsHook();
   const { data: songs, loading: songsLoading } = useSongsHook();
 
-  const cards = menu.active === 'albums' ? albums : songs;
   const loading = albumsLoading || songsLoading;
+  const cards = () => {
+    switch (menu.active) {
+      case 'albums':
+        return albums;
+      case 'songs':
+        return songs;
+      default:
+        return [];
+    }
+  };
 
   useEffect(() => {
     const { active } = menu;
-    if (active !== 'favorites' && !cards.length) {
+    if (active !== 'favorites' && !cards().length) {
       api.request(menu.active);
     }
   }, [menu.active]);
@@ -35,7 +44,7 @@ const Home = () => {
           menuOptionActive={menu.active}
           onClickMenuOption={handleClickMenuOption}
         />
-        <ListComponent loading={loading} cards={cards} />
+        <ListComponent loading={loading} cards={cards()} />
       </Container>
     </>
   );
