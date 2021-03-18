@@ -4,7 +4,9 @@ import {
   CardList, CardMusic, CardPlaceholder, Text,
 } from '../../../components';
 
-export const ListComponent = ({ cards, loading, emptyText }) => {
+export const ListComponent = ({
+  cards, loading, emptyText, onClickFavorite,
+}) => {
   const renderLoading = (
     <>
       <CardPlaceholder />
@@ -21,6 +23,7 @@ export const ListComponent = ({ cards, loading, emptyText }) => {
         src: card.image,
         alt: card.name,
       }}
+      onClickCard={() => onClickFavorite(card.id)}
     />
   ));
 
@@ -43,6 +46,7 @@ ListComponent.propTypes = {
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   emptyText: PropTypes.string,
+  onClickFavorite: PropTypes.func.isRequired,
 };
 
 ListComponent.defaultProps = {

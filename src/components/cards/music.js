@@ -5,9 +5,9 @@ import {
 } from './base';
 
 export const CardMusic = ({
-  title, subtitle, image,
+  title, subtitle, image, onClickCard,
 }) => (
-  <Card>
+  <Card onClick={onClickCard}>
     <CardImage
       src={image.src}
       alt={image.alt}
@@ -29,4 +29,9 @@ CardMusic.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
   }).isRequired,
+  onClickCard: PropTypes.func,
+};
+
+CardMusic.defaultProps = {
+  onClickCard: undefined,
 };

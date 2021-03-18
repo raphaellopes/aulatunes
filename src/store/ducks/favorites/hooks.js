@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { FavoritesCreators as actions } from './actions';
 
-export const useFavotitesHook = () => {
+export const useFavoritesHook = () => {
   const dispatch = useDispatch();
   const favoritesState = (state) => state.favorites;
   const data = useSelector(favoritesState);
