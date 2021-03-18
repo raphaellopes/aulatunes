@@ -26,6 +26,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: ${font.weight.bold};
   font-size: ${font.size.sm};
+  ${({ onClick }) => onClick && 'cursor: pointer;'}
   ${buttonStyle}
 `;
 

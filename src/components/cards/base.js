@@ -10,6 +10,7 @@ export const Card = styled.div`
   padding: ${metrics.padding.md};
   border-radius: ${metrics.borderRadius.md};
   box-shadow: ${colors.shadow};
+  ${({ onClick }) => onClick && 'cursor: pointer;'}
 `;
 
 export const CardContent = styled.div`

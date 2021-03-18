@@ -7,7 +7,7 @@ export const Navigation = ({ options, active, onClickOption }) => {
     <MenuItem
       key={`menu-option-${value}`}
       variant={active === value ? 'primary' : 'default'}
-      onClick={() => onClickOption(value)}
+      onClick={active === value ? undefined : () => onClickOption(value)}
     >
       {label}
     </MenuItem>
