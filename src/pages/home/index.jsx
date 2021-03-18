@@ -22,7 +22,7 @@ const Home = () => {
       case 'albums':
         return albums.filter(searchFilter);
       case 'songs':
-        return songs;
+        return songs.filter(searchFilter);
       default:
         return [];
     }
