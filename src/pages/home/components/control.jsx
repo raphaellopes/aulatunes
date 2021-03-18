@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { kebabCase } from '../../../utils';
 import { Navigation, Input } from '../../../components';
+import { Container, InputWrapper, ClearButton } from './styles';
 
 export const ControlComponent = ({
   menuOptions, menuOptionActive, onClickMenuOption, onChangeSearch,
@@ -15,19 +16,35 @@ export const ControlComponent = ({
     onChangeSearch(kebabCase(value));
   };
 
-  return (
-    <>
-      <Navigation
-        active={menuOptionActive}
-        options={menuOptions}
-        onClickOption={onClickMenuOption}
-      />
+  const handleClickSearchClear = () => {
+    setSearch('');
+    onChangeSearch('');
+  };
+
+  const renderInput = (
+    <InputWrapper>
       <Input
         placeholder="Search"
         value={search}
         onChange={handleChangeSearch}
       />
-    </>
+      {search.length > 0 && (
+        <ClearButton onClick={handleClickSearchClear}>
+          x
+        </ClearButton>
+      )}
+    </InputWrapper>
+  );
+
+  return (
+    <Container>
+      <Navigation
+        active={menuOptionActive}
+        options={menuOptions}
+        onClickOption={onClickMenuOption}
+      />
+      {renderInput}
+    </Container>
   );
 };
 
