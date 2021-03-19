@@ -35,9 +35,7 @@
     ]
   },
   "jest": {
-    "coverageReporters": [
-      "html"
-    ]
+    "coverageReporters": ["html"]
   },
   "browserslist": {
     "production": [

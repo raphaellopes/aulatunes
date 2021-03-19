@@ -24,6 +24,7 @@ export const ControlComponent = ({
   const renderInput = (
     <InputWrapper>
       <Input
+        data-testid="search"
         placeholder="Search"
         value={search}
         onChange={handleChangeSearch}

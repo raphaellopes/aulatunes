@@ -8,15 +8,16 @@ export const ListComponent = ({
   cards, loading, emptyText, onClickFavorite,
 }) => {
   const renderLoading = (
-    <>
+    <div data-testid="loading">
       <CardPlaceholder />
       <CardPlaceholder />
-    </>
+    </div>
   );
 
   const renderCards = cards.map((card) => (
     <CardMusic
       key={`card-item-${card.id}`}
+      id="card"
       title={card.name}
       subtitle={`By ${card.artist}`}
       variant={card.isFavorite ? 'secondary' : 'default'}

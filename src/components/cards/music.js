@@ -5,9 +5,9 @@ import {
 } from './base';
 
 export const CardMusic = ({
-  title, subtitle, image, onClickCard, variant,
+  title, subtitle, image, onClickCard, variant, id,
 }) => (
-  <Card onClick={onClickCard} variant={variant}>
+  <Card onClick={onClickCard} variant={variant} data-testid={id}>
     <CardImage
       src={image.src}
       alt={image.alt}
@@ -16,8 +16,8 @@ export const CardMusic = ({
       height={60}
     />
     <CardContent>
-      <CardTitle>{title}</CardTitle>
-      <CardSubtitle>{subtitle}</CardSubtitle>
+      <CardTitle data-testid={`${id}-title`}>{title}</CardTitle>
+      <CardSubtitle data-testid={`${id}-subtitle`}>{subtitle}</CardSubtitle>
     </CardContent>
   </Card>
 );
@@ -31,8 +31,10 @@ CardMusic.propTypes = {
     alt: PropTypes.string,
   }).isRequired,
   onClickCard: PropTypes.func,
+  id: PropTypes.string,
 };
 
 CardMusic.defaultProps = {
   onClickCard: undefined,
+  id: undefined,
 };
