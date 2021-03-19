@@ -102,4 +102,21 @@ describe('pages | Home', () => {
     fireEvent.change(search, { target: { value: 'asdf' } });
     expect(getByText(/No results for albums/)).toBeInTheDocument();
   });
+
+  test('should filter the cards and click to clear the result', async () => {
+    mockCall();
+    const { getByTestId, getAllByTestId, getByText } = render(<App />);
+    const search = getByTestId('search');
+    fireEvent.click(getByText(/Albums/));
+    await waitFor(() => getAllByTestId('card'));
+    expect(search).toBeInTheDocument();
+    fireEvent.change(search, { target: { value: 'love' } });
+    const clear = getByTestId('search-clear');
+    expect(clear).toBeInTheDocument();
+    const filteredCards = await waitFor(() => getAllByTestId('card'));
+    expect(filteredCards.length).toEqual(1);
+    fireEvent.click(clear);
+    const afterClearCards = await waitFor(() => getAllByTestId('card'));
+    expect(afterClearCards.length).toEqual(2);
+  });
 });

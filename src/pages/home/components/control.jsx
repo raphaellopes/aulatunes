@@ -30,7 +30,7 @@ export const ControlComponent = ({
         onChange={handleChangeSearch}
       />
       {search.length > 0 && (
-        <ClearButton onClick={handleClickSearchClear}>
+        <ClearButton data-testid="search-clear" onClick={handleClickSearchClear}>
           x
         </ClearButton>
       )}
