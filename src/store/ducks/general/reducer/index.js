@@ -1,3 +1,4 @@
+import { ROUTE_ALBUMS, ROUTE_SONGS, ROUTE_FAVORITES } from '../../../../shared';
 import { GeneralTypes } from '../actions';
 
 // reducers
@@ -5,9 +6,9 @@ export const initialState = {
   menu: {
     active: '',
     options: [
-      { label: 'Albums', value: 'albums' },
-      { label: 'Songs', value: 'songs' },
-      { label: 'Favorites', value: 'favorites' },
+      { label: 'Albums', value: ROUTE_ALBUMS },
+      { label: 'Songs', value: ROUTE_SONGS },
+      { label: 'Favorites', value: ROUTE_FAVORITES },
     ],
   },
   filter: {

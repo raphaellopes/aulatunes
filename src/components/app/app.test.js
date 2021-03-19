@@ -2,10 +2,10 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render, waitFor, fireEvent } from '@testing-library/react';
-import api from './services/itunes';
-import { albums, songs } from './__mocks__/apiData';
+import api from '../../services/itunes';
+import { albums, songs } from '../../__mocks__/apiData';
 
-import App from './App';
+import App from './index';
 
 const mockCall = (entry) => {
   api.get
@@ -29,7 +29,7 @@ const renderWithRouter = (component) => {
   };
 };
 
-describe('pages | Home', () => {
+describe('App | full app rendering/navigating', () => {
   afterEach(() => {
     api.get.mockClear();
   });

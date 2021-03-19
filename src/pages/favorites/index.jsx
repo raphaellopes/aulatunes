@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+import { ROUTE_FAVORITES } from '../../shared';
 import { searchFilter } from '../../utils';
 import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
 import { useSongsHook } from '../../store/ducks/songs';
-import { useFavoritesHook } from '../../store/ducks/favorites';
+import { useFavoritesHook, FAVORITE_ALBUMS, FAVORITE_SONGS } from '../../store/ducks/favorites';
 import { CardList, Section } from '../../components';
 
 const Favorites = () => {
@@ -13,11 +14,11 @@ const Favorites = () => {
   const favorites = useFavoritesHook();
 
   const favoritesFilter = (group) => ({ id }) => favorites.data[group].includes(id);
-  const favoriteAlbums = albums.filter(favoritesFilter('albums'));
-  const favoriteSongs = songs.filter(favoritesFilter('songs'));
+  const favoriteAlbums = albums.filter(favoritesFilter(FAVORITE_ALBUMS));
+  const favoriteSongs = songs.filter(favoritesFilter(FAVORITE_SONGS));
 
   useEffect(() => {
-    setActive('favorites');
+    setActive(ROUTE_FAVORITES);
   }, []);
 
   const handleClickFavorite = (value, group) => {
@@ -41,8 +42,8 @@ const Favorites = () => {
 
   return (
     <>
-      {renderSection('Albums', favoriteAlbums, 'albums')}
-      {renderSection('Songs', favoriteSongs, 'songs')}
+      {renderSection('Albums', favoriteAlbums, FAVORITE_ALBUMS)}
+      {renderSection('Songs', favoriteSongs, FAVORITE_SONGS)}
     </>
   );
 };

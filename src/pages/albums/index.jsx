@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+import { ROUTE_ALBUMS } from '../../shared';
 import { searchFilter } from '../../utils';
-import { useApiHooks } from '../../store/ducks/api';
+import { useApiHooks, API_FEAT_ALBUMS } from '../../store/ducks/api';
 import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
-import { useFavoritesHook } from '../../store/ducks/favorites';
+import { useFavoritesHook, FAVORITE_ALBUMS } from '../../store/ducks/favorites';
 import { CardList } from '../../components';
 
 const Albums = () => {
@@ -18,17 +19,17 @@ const Albums = () => {
   });
 
   useEffect(() => {
-    setActive('albums');
+    setActive(ROUTE_ALBUMS);
     if (!albums.length) {
-      api.request('albums');
+      api.request(API_FEAT_ALBUMS);
     }
   }, []);
 
   const handleClickFavorite = (value) => {
     if (favorites.data.albums.includes(value)) {
-      favorites.remove(value, 'albums');
+      favorites.remove(value, FAVORITE_ALBUMS);
     } else {
-      favorites.add(value, 'albums');
+      favorites.add(value, FAVORITE_ALBUMS);
     }
   };
 

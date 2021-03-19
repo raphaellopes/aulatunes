@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Route, Switch, Redirect,
 } from 'react-router-dom';
+import { ROUTE_ALBUMS, ROUTE_SONGS, ROUTE_FAVORITES } from '../../shared';
 import { Container, Header } from '../../components';
 import { useGeneralHook } from '../../store/ducks/general';
 import { ControlComponent } from './components';
@@ -33,11 +34,11 @@ const Main = ({ history }) => {
         {renderControl}
         <Switch>
           <Route exact path="/">
-            <Redirect to="/albums" />
+            <Redirect to={`/${ROUTE_ALBUMS}`} />
           </Route>
-          <Route exact path="/albums" component={Albums} />
-          <Route exact path="/songs" component={Songs} />
-          <Route exact path="/favorites" component={Favorites} />
+          <Route exact path={`/${ROUTE_ALBUMS}`} component={Albums} />
+          <Route exact path={`/${ROUTE_SONGS}`} component={Songs} />
+          <Route exact path={`/${ROUTE_FAVORITES}`} component={Favorites} />
         </Switch>
       </Container>
     </>

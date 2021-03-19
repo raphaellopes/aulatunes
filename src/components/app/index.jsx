@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Provider as ReduxProvider } from 'react-redux';
 
-import store from './store';
-import { GlobalStyle } from './styles';
-import Main from './pages/main';
+import store from '../../store';
+import { GlobalStyle } from '../../styles';
+import Main from '../../pages/main';
 
 const App = () => (
   <ReduxProvider store={store}>
