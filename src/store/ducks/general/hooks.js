@@ -1,16 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { GeneralCreators as actions } from './actions';
 
-export const useMenuHook = () => {
+export const useGeneralHook = () => {
   const dispatch = useDispatch();
-  const menuState = (state) => state.general.menu;
-  const data = useSelector(menuState);
+  const generalState = (state) => state.general;
+  const { menu, filter } = useSelector(generalState);
 
   // dispatchers
   const setActive = (value) => dispatch(actions.setActiveMenu(value));
+  const setSearch = (value) => dispatch(actions.setSearch(value));
 
   return {
-    data,
+    menu,
+    filter,
     setActive,
+    setSearch,
   };
 };

@@ -10,6 +10,9 @@ export const initialState = {
       { label: 'Favorites', value: 'favorites' },
     ],
   },
+  filter: {
+    search: '',
+  },
 };
 
 export const generalReducer = (state = initialState, action) => {
@@ -20,6 +23,16 @@ export const generalReducer = (state = initialState, action) => {
         menu: {
           ...state.menu,
           active: action.payload,
+        },
+      };
+    }
+
+    case GeneralTypes.SET_SEARCH: {
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          search: action.payload || '',
         },
       };
     }

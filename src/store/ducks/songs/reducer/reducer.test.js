@@ -1,23 +1,24 @@
 import { SongsTypes as Types } from '../actions';
-import * as reducer from './index';
+import { initialState, songsReducer } from './index';
 
 describe('redux | songs | reducer', () => {
   test('should return the initial state', () => {
-    expect(reducer.songsReducer(undefined, {})).toEqual(
-      reducer.initialState,
+    expect(songsReducer(undefined, {})).toEqual(
+      initialState,
     );
   });
 
   test('should handle LOADING', () => {
     const payload = true;
     const expected = {
+      ...initialState,
       loading: payload,
     };
     const actions = {
       type: Types.STATUS,
       payload,
     };
-    expect(reducer.songsReducer({}, actions)).toEqual(expected);
+    expect(songsReducer(initialState, actions)).toEqual(expected);
   });
 
   test('should handle DATA', () => {
@@ -30,12 +31,13 @@ describe('redux | songs | reducer', () => {
       },
     ];
     const expected = {
+      ...initialState,
       data: payload,
     };
     const actions = {
       type: Types.DATA,
       payload,
     };
-    expect(reducer.songsReducer({}, actions)).toEqual(expected);
+    expect(songsReducer(initialState, actions)).toEqual(expected);
   });
 });

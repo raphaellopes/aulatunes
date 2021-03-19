@@ -1,10 +1,10 @@
 import { FavoritesTypes as Types } from '../actions';
-import * as reducer from './index';
+import { initialState, favoritesReducer } from './index';
 
 describe('redux | favorites | reducer', () => {
   test('should return the initial state', () => {
-    expect(reducer.favoritesReducer(undefined, {})).toEqual(
-      reducer.initialState,
+    expect(favoritesReducer(undefined, {})).toEqual(
+      initialState,
     );
   });
 
@@ -12,7 +12,7 @@ describe('redux | favorites | reducer', () => {
     const payload = 'A1';
     const meta = 'albums';
     const expected = {
-      ...reducer.initialState,
+      ...initialState,
       albums: [payload],
     };
     const actions = {
@@ -20,14 +20,14 @@ describe('redux | favorites | reducer', () => {
       payload,
       meta,
     };
-    expect(reducer.favoritesReducer(reducer.initialState, actions)).toEqual(expected);
+    expect(favoritesReducer(initialState, actions)).toEqual(expected);
   });
 
   test('should remove a favorite', () => {
     const payload = 'A2';
     const meta = 'albums';
     const state = {
-      ...reducer.initialState,
+      ...initialState,
       albums: ['A1', 'A2', 'A3'],
     };
     const expected = {
@@ -39,6 +39,6 @@ describe('redux | favorites | reducer', () => {
       payload,
       meta,
     };
-    expect(reducer.favoritesReducer(state, actions)).toEqual(expected);
+    expect(favoritesReducer(state, actions)).toEqual(expected);
   });
 });

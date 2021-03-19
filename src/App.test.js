@@ -84,44 +84,46 @@ describe('pages | Home', () => {
     expect(getByText(/No results for Favorites/)).toBeInTheDocument();
   });
 
-  // test('should filter the cards', async () => {
-  // mockCall();
-  // const { getByTestId, getAllByTestId, getByText } = render(<TestApp />);
-  // const search = getByTestId('search');
-  // fireEvent.click(getByText(/Albums/));
-  // const cards = await waitFor(() => getAllByTestId('card'));
-  // expect(search).toBeInTheDocument();
-  // expect(cards.length).toEqual(2);
-  // fireEvent.change(search, { target: { value: 'love' } });
-  // const filteredCards = await waitFor(() => getAllByTestId('card'));
-  // expect(filteredCards.length).toEqual(1);
-  // });
+  test('should filter the cards', async () => {
+    mockCall(albums);
+    const { getByTestId, getAllByTestId, getByText } = renderWithRouter(<App />);
+    const search = getByTestId('search');
+    fireEvent.click(getByText(/Albums/));
+    const cards = await waitFor(() => getAllByTestId('card'));
+    expect(search).toBeInTheDocument();
+    expect(cards.length).toEqual(2);
+    fireEvent.change(search, { target: { value: 'love' } });
+    const filteredCards = await waitFor(() => getAllByTestId('card'));
+    expect(filteredCards.length).toEqual(1);
+    fireEvent.change(search, { target: { value: '' } });
+  });
 
-  // test('should filter the cards and do not find any results', async () => {
-  // mockCall();
-  // const { getByTestId, getAllByTestId, getByText } = render(<TestApp />);
-  // const search = getByTestId('search');
-  // const cards = await waitFor(() => getAllByTestId('card'));
-  // expect(search).toBeInTheDocument();
-  // expect(cards.length).toEqual(2);
-  // fireEvent.change(search, { target: { value: 'asdf' } });
-  // expect(getByText(/No results for albums/)).toBeInTheDocument();
-  // });
+  test('should filter the cards and do not find any results', async () => {
+    mockCall(albums);
+    const { getByTestId, getAllByTestId, getByText } = renderWithRouter(<App />);
+    const search = getByTestId('search');
+    const cards = await waitFor(() => getAllByTestId('card'));
+    expect(search).toBeInTheDocument();
+    expect(cards.length).toEqual(2);
+    fireEvent.change(search, { target: { value: 'asdf' } });
+    expect(getByText(/No results for Albums/)).toBeInTheDocument();
+    fireEvent.change(search, { target: { value: '' } });
+  });
 
-  // test('should filter the cards and click to clear the result', async () => {
-  // mockCall();
-  // const { getByTestId, getAllByTestId, getByText } = render(<TestApp />);
-  // const search = getByTestId('search');
-  // fireEvent.click(getByText(/Albums/));
-  // await waitFor(() => getAllByTestId('card'));
-  // expect(search).toBeInTheDocument();
-  // fireEvent.change(search, { target: { value: 'love' } });
-  // const clear = getByTestId('search-clear');
-  // expect(clear).toBeInTheDocument();
-  // const filteredCards = await waitFor(() => getAllByTestId('card'));
-  // expect(filteredCards.length).toEqual(1);
-  // fireEvent.click(clear);
-  // const afterClearCards = await waitFor(() => getAllByTestId('card'));
-  // expect(afterClearCards.length).toEqual(2);
-  // });
+  test('should filter the cards and click to clear the result', async () => {
+    mockCall(albums);
+    const { getByTestId, getAllByTestId, getByText } = renderWithRouter(<App />);
+    const search = getByTestId('search');
+    fireEvent.click(getByText(/Albums/));
+    await waitFor(() => getAllByTestId('card'));
+    expect(search).toBeInTheDocument();
+    fireEvent.change(search, { target: { value: 'love' } });
+    const clear = getByTestId('search-clear');
+    expect(clear).toBeInTheDocument();
+    const filteredCards = await waitFor(() => getAllByTestId('card'));
+    expect(filteredCards.length).toEqual(1);
+    fireEvent.click(clear);
+    const afterClearCards = await waitFor(() => getAllByTestId('card'));
+    expect(afterClearCards.length).toEqual(2);
+  });
 });

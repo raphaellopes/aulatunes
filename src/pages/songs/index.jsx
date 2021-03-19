@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
+import { searchFilter } from '../../utils';
 import { useApiHooks } from '../../store/ducks/api';
-import { useMenuHook } from '../../store/ducks/general';
+import { useGeneralHook } from '../../store/ducks/general';
 import { useSongsHook } from '../../store/ducks/songs';
 import { useFavoritesHook } from '../../store/ducks/favorites';
 import { ListComponent } from './components';
 
 const Songs = () => {
   const api = useApiHooks();
-  const { setActive } = useMenuHook();
-  const { data: songs, loading: songsLoading } = useSongsHook();
+  const { setActive, filter } = useGeneralHook();
+  const { data: songs, loading } = useSongsHook();
   const favorites = useFavoritesHook();
 
-  const loading = songsLoading;
   // const allFavorites = [...favorites.data.albums, ...favorites.data.songs];
   // const favoritesFilter = ({ id }) => allFavorites.includes(id);
   const mapFavorite = (item) => ({
@@ -37,7 +37,7 @@ const Songs = () => {
   return (
     <ListComponent
       loading={loading}
-      cards={songs.map(mapFavorite)}
+      cards={songs.filter(searchFilter(filter.search)).map(mapFavorite)}
       emptyText="No results for Songs"
       onClickFavorite={handleClickFavorite}
     />

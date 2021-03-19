@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Route, Switch, Redirect,
 } from 'react-router-dom';
 import { Container, Header } from '../../components';
-import { useMenuHook } from '../../store/ducks/general';
+import { useGeneralHook } from '../../store/ducks/general';
 import { ControlComponent } from './components';
 import Albums from '../albums';
 import Songs from '../songs';
 import Favorites from '../favorites';
 
 const Main = ({ history }) => {
-  const [, setSearch] = useState('');
-  const { data: menu } = useMenuHook();
+  const { menu, setSearch } = useGeneralHook();
 
   const handleClickMenuOption = (value) => {
     history.push(value);

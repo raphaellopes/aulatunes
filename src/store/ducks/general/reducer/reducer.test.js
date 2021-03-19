@@ -1,17 +1,19 @@
 import { GeneralTypes as Types } from '../actions';
-import * as reducer from './index';
+import { initialState, generalReducer } from './index';
 
 describe('redux | general | reducer', () => {
   test('should return the initial state', () => {
-    expect(reducer.generalReducer(undefined, {})).toEqual(
-      reducer.initialState,
+    expect(generalReducer(undefined, {})).toEqual(
+      initialState,
     );
   });
 
   test('should handle SET_ACTIVE_MENU', () => {
     const payload = 'songs';
     const expected = {
+      ...initialState,
       menu: {
+        ...initialState.menu,
         active: payload,
       },
     };
@@ -19,6 +21,22 @@ describe('redux | general | reducer', () => {
       type: Types.SET_ACTIVE_MENU,
       payload,
     };
-    expect(reducer.generalReducer({}, actions)).toEqual(expected);
+    expect(generalReducer(initialState, actions)).toEqual(expected);
+  });
+
+  test('should handle SET_SEARCH', () => {
+    const payload = 'some text';
+    const expected = {
+      ...initialState,
+      filter: {
+        ...initialState.filter,
+        search: payload,
+      },
+    };
+    const actions = {
+      type: Types.SET_SEARCH,
+      payload,
+    };
+    expect(generalReducer(initialState, actions)).toEqual(expected);
   });
 });

@@ -9,4 +9,13 @@ describe('redux | general | actions', () => {
     };
     expect(actions.setActiveMenu(payload)).toEqual(expected);
   });
+
+  test('should create an action for setSearch', () => {
+    const payload = 'some text';
+    const expected = {
+      type: Types.SET_SEARCH,
+      payload,
+    };
+    expect(actions.setSearch(payload)).toEqual(expected);
+  });
 });
