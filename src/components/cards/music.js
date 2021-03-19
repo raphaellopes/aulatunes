@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { metrics } from '../../styles';
 import {
-  Card, CardContent, CardImage, CardImagePlaceholder, CardTitle, CardSubtitle, cardProps,
+  Card, CardContent, CardImage, CardTitle, CardSubtitle, cardProps,
 } from './base';
+import { CardImagePlaceholder } from './placeholder';
 
 export const CardMusic = ({
   title, subtitle, image, onClickCard, variant, id,
@@ -12,8 +14,8 @@ export const CardMusic = ({
       src={image.src}
       alt={image.alt}
       placeholder={<CardImagePlaceholder />}
-      width={60}
-      height={60}
+      width={metrics.avatar.md}
+      height={metrics.avatar.md}
     />
     <CardContent>
       <CardTitle data-testid={`${id}-title`}>{title}</CardTitle>

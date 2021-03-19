@@ -4,6 +4,7 @@ import { metrics, colors, font } from '../../../../styles';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: ${metrics.margin.xl};
 
   @media ${metrics.media.md} {
     flex-direction: row;

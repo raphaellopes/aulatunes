@@ -21,21 +21,13 @@ const Favorites = () => {
     setActive(ROUTE_FAVORITES);
   }, []);
 
-  const handleClickFavorite = (value, group) => {
-    if (favorites.data[group].includes(value)) {
-      favorites.remove(value, group);
-    } else {
-      favorites.add(value, group);
-    }
-  };
-
   const renderSection = (title, data, group) => (
     <Section title={title}>
       <CardList
         loading={false}
         cards={data.filter(searchFilter(filter.search))}
         emptyText={`No results for Favorites ${title}`}
-        onClickFavorite={(value) => handleClickFavorite(value, group)}
+        onClickFavorite={(value) => favorites.remove(value, group)}
       />
     </Section>
   );

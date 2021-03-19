@@ -26,4 +26,7 @@ export const metrics = {
     md: '10px',
     lg: '20px',
   },
+  avatar: {
+    md: '60px',
+  },
 };

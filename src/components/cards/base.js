@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import theme from 'styled-theming';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { colors, metrics } from '../../styles';
-import { Placeholder } from '../placeholder';
 import { Title, TextLabel } from '../thypography';
 
 const cardStyle = theme.variants('mode', 'variant', {
@@ -22,10 +21,6 @@ const cardStyle = theme.variants('mode', 'variant', {
   },
 });
 
-export const cardProps = {
-  variant: PropTypes.oneOf(['default', 'secondary']),
-};
-export const cardDefaultProps = { variant: 'default' };
 export const Card = styled.div`
   display: flex;
   padding: ${metrics.padding.md};
@@ -34,8 +29,11 @@ export const Card = styled.div`
   ${cardStyle}
   ${({ onClick }) => onClick && 'cursor: pointer;'}
 `;
+export const cardProps = {
+  variant: PropTypes.oneOf(['default', 'secondary']),
+};
 Card.propTypes = cardProps;
-Card.defaultProps = cardDefaultProps;
+Card.defaultProps = { variant: 'default' };
 
 export const CardContent = styled.div`
   flex: 1;
@@ -53,31 +51,4 @@ export const CardTitle = styled(Title)`
 
 export const CardSubtitle = styled(TextLabel)`
   color: ${colors.light_30};
-`;
-
-// export const CardList = styled.div`
-// margin-top: ${metrics.margin.lg};
-
-// ${Card} {
-// &:not(:last-child) {
-// margin-bottom: ${metrics.margin.md};
-// }
-// }
-// `;
-
-// @TODO: add size prop
-export const CardImagePlaceholder = styled(Placeholder)`
-  margin-right: ${metrics.margin.md};
-  width: 60px;
-  height: 60px;
-`;
-
-export const CardTitlePlaceholder = styled(Placeholder)`
-  height: 26px;
-  width: 90%;
-`;
-
-export const CardSubtitlePlaceholder = styled(Placeholder)`
-  height: 16px;
-  width: 70%;
 `;
