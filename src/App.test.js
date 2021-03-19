@@ -81,14 +81,15 @@ describe('pages | Home', () => {
     const favorite = getByTestId('card');
     expect(favorite).toBeInTheDocument();
     fireEvent.click(favorite);
-    expect(getByText(/No results for Favorites/)).toBeInTheDocument();
+    const emptyText = getByText(/No results for Favorites Albums/);
+    expect(emptyText).toBeInTheDocument();
   });
 
   test('should filter the cards', async () => {
     mockCall(albums);
     const { getByTestId, getAllByTestId, getByText } = renderWithRouter(<App />);
     const search = getByTestId('search');
-    fireEvent.click(getByText(/Albums/));
+    fireEvent.click(getByTestId('menu-option-albums'));
     const cards = await waitFor(() => getAllByTestId('card'));
     expect(search).toBeInTheDocument();
     expect(cards.length).toEqual(2);

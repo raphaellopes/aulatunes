@@ -8,11 +8,13 @@ export const metrics = {
   padding: {
     md: '10px',
     lg: '16px',
+    xl: '24px',
   },
   margin: {
     sm: '5px',
     md: '10px',
     lg: '16px',
+    xl: '24px',
   },
   screenSizes,
   media: {

@@ -4,23 +4,17 @@ import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
 import { useSongsHook } from '../../store/ducks/songs';
 import { useFavoritesHook } from '../../store/ducks/favorites';
-import { CardList } from '../../components';
+import { CardList, Section } from '../../components';
 
 const Favorites = () => {
   const { setActive, filter } = useGeneralHook();
-  const { data: albums, loading: albumsLoading } = useAlbumsHook();
-  const { data: songs, loading: songsLoading } = useSongsHook();
+  const { data: albums } = useAlbumsHook();
+  const { data: songs } = useSongsHook();
   const favorites = useFavoritesHook();
 
-  const loading = albumsLoading || songsLoading;
-  const allFavorites = [...favorites.data.albums, ...favorites.data.songs];
-  const favoritesFilter = ({ id }) => allFavorites.includes(id);
-  const mapFavorite = (item) => ({
-    ...item,
-    isFavorite: allFavorites.includes(item.id),
-  });
-
-  const cards = [...albums, ...songs].filter(favoritesFilter);
+  const favoritesFilter = (group) => ({ id }) => favorites.data[group].includes(id);
+  const favoriteAlbums = albums.filter(favoritesFilter('albums'));
+  const favoriteSongs = songs.filter(favoritesFilter('songs'));
 
   useEffect(() => {
     setActive('favorites');
@@ -34,13 +28,22 @@ const Favorites = () => {
     }
   };
 
+  const renderSection = (title, data, group) => (
+    <Section title={title}>
+      <CardList
+        loading={false}
+        cards={data.filter(searchFilter(filter.search))}
+        emptyText={`No results for Favorites ${title}`}
+        onClickFavorite={(value) => handleClickFavorite(value, group)}
+      />
+    </Section>
+  );
+
   return (
-    <CardList
-      loading={loading}
-      cards={cards.filter(searchFilter(filter.search)).map(mapFavorite)}
-      emptyText="No results for Favorites"
-      onClickFavorite={handleClickFavorite}
-    />
+    <>
+      {renderSection('Albums', favoriteAlbums, 'albums')}
+      {renderSection('Songs', favoriteSongs, 'songs')}
+    </>
   );
 };
 

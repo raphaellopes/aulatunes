@@ -30,7 +30,9 @@ export const CardList = ({
     />
   ));
 
-  const renderEmpty = !loading && !cards.length && (<Text>{emptyText}</Text>);
+  const renderEmpty = !loading && !cards.length && (
+    <Text data-testid="card-list-empty">{emptyText}</Text>
+  );
 
   return (
     <List>
