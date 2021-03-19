@@ -11,15 +11,12 @@ import Songs from '../songs';
 import Favorites from '../favorites';
 
 const Main = ({ history }) => {
-  const [search, setSearch] = useState('');
+  const [, setSearch] = useState('');
   const { data: menu } = useMenuHook();
 
   const handleClickMenuOption = (value) => {
     history.push(value);
   };
-  console.log('Main >>>', {
-    search,
-  });
 
   const renderControl = (
     <ControlComponent
