@@ -4,7 +4,7 @@ import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
 import { useSongsHook } from '../../store/ducks/songs';
 import { useFavoritesHook } from '../../store/ducks/favorites';
-import { ListComponent } from './components';
+import { CardList } from '../../components';
 
 const Favorites = () => {
   const { setActive, filter } = useGeneralHook();
@@ -35,7 +35,7 @@ const Favorites = () => {
   };
 
   return (
-    <ListComponent
+    <CardList
       loading={loading}
       cards={cards.filter(searchFilter(filter.search)).map(mapFavorite)}
       emptyText="No results for Favorites"

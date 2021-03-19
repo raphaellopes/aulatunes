@@ -4,7 +4,7 @@ import { useApiHooks } from '../../store/ducks/api';
 import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
 import { useFavoritesHook } from '../../store/ducks/favorites';
-import { ListComponent } from './components';
+import { CardList } from '../../components';
 
 const Albums = () => {
   const api = useApiHooks();
@@ -33,7 +33,7 @@ const Albums = () => {
   };
 
   return (
-    <ListComponent
+    <CardList
       loading={loading}
       cards={albums.filter(searchFilter(filter.search)).map(mapFavorite)}
       emptyText="No results for Albums"

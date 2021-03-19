@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  CardList, CardMusic, CardPlaceholder, Text,
-} from '../../../components';
+import { Text } from '../../thypography';
+import { CardPlaceholder } from '../placeholder';
+import { CardMusic } from '../music';
+import { List } from './styles';
 
-export const ListComponent = ({
+export const CardList = ({
   cards, loading, emptyText, onClickFavorite,
 }) => {
   const renderLoading = (
@@ -32,14 +33,14 @@ export const ListComponent = ({
   const renderEmpty = !loading && !cards.length && (<Text>{emptyText}</Text>);
 
   return (
-    <CardList>
+    <List>
       {loading ? renderLoading : renderCards}
       {renderEmpty}
-    </CardList>
+    </List>
   );
 };
 
-ListComponent.propTypes = {
+CardList.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
@@ -51,6 +52,6 @@ ListComponent.propTypes = {
   onClickFavorite: PropTypes.func.isRequired,
 };
 
-ListComponent.defaultProps = {
+CardList.defaultProps = {
   emptyText: '',
 };

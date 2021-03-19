@@ -55,15 +55,15 @@ export const CardSubtitle = styled(TextLabel)`
   color: ${colors.light_30};
 `;
 
-export const CardList = styled.div`
-  margin-top: ${metrics.margin.lg};
+// export const CardList = styled.div`
+// margin-top: ${metrics.margin.lg};
 
-  ${Card} {
-    &:not(:last-child) {
-      margin-bottom: ${metrics.margin.md};
-    }
-  }
-`;
+// ${Card} {
+// &:not(:last-child) {
+// margin-bottom: ${metrics.margin.md};
+// }
+// }
+// `;
 
 // @TODO: add size prop
 export const CardImagePlaceholder = styled(Placeholder)`
