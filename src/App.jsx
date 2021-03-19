@@ -1,18 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Provider as ReduxProvider } from 'react-redux';
 
-import { Header } from './components';
 import store from './store';
 import { GlobalStyle } from './styles';
-import Home from './pages/home';
+import Main from './pages/main';
 
 const App = () => (
   <ReduxProvider store={store}>
     <ThemeProvider theme={{ mode: 'light' }}>
       <GlobalStyle />
-      <Header />
-      <Home />
+      <BrowserRouter>
+        <Switch>
+          <Route component={Main} />
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   </ReduxProvider>
 );

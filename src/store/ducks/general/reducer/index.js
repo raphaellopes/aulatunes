@@ -3,7 +3,7 @@ import { GeneralTypes } from '../actions';
 // reducers
 export const initialState = {
   menu: {
-    active: 'albums',
+    active: '',
     options: [
       { label: 'Albums', value: 'albums' },
       { label: 'Songs', value: 'songs' },
