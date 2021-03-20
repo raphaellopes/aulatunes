@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { metrics } from '../../styles';
 import { Placeholder } from '../placeholder';
-import { Card, CardContent } from './base';
+import { Card, CardContent } from './styles';
 
 export const CardImagePlaceholder = styled(Placeholder)`
   margin-right: ${metrics.margin.md};

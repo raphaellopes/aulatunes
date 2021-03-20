@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '../../thypography';
-import { CardPlaceholder } from '../placeholder';
-import { CardMusic } from '../music';
-import { List } from './styles';
+import { metrics } from '../../styles';
+import { Text } from '../thypography';
+import {
+  Card, CardImage, CardContent, CardTitle, CardSubtitle, CardListContainer,
+} from './styles';
+import { CardPlaceholder, CardImagePlaceholder } from './placeholder';
 
 export const CardList = ({
   cards, loading, emptyText, onClickFavorite,
@@ -16,18 +18,24 @@ export const CardList = ({
   );
 
   const renderCards = cards.map((card) => (
-    <CardMusic
+    <Card
       key={`card-item-${card.id}`}
-      id="card"
-      title={card.name}
-      subtitle={`By ${card.artist}`}
+      onClick={() => onClickFavorite(card.id)}
       variant={card.isFavorite ? 'secondary' : 'default'}
-      image={{
-        src: card.image,
-        alt: card.name,
-      }}
-      onClickCard={() => onClickFavorite(card.id, card.group)}
-    />
+      data-testid="card"
+    >
+      <CardImage
+        src={card.image}
+        alt={card.name}
+        placeholder={<CardImagePlaceholder />}
+        width={metrics.avatar.md}
+        height={metrics.avatar.md}
+      />
+      <CardContent>
+        <CardTitle data-testid="card-title">{card.name}</CardTitle>
+        <CardSubtitle data-testid="card-subtitle">{`By ${card.artist}`}</CardSubtitle>
+      </CardContent>
+    </Card>
   ));
 
   const renderEmpty = !loading && !cards.length && (
@@ -35,10 +43,10 @@ export const CardList = ({
   );
 
   return (
-    <List>
+    <CardListContainer>
       {loading ? renderLoading : renderCards}
       {renderEmpty}
-    </List>
+    </CardListContainer>
   );
 };
 

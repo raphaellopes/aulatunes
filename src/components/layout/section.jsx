@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, SectionTitle } from './styles';
+import { SectionContainer, SectionTitle } from './styles';
 
 export const Section = ({ children, title }) => (
-  <Container>
+  <SectionContainer>
     <SectionTitle>{title}</SectionTitle>
     {children}
-  </Container>
+  </SectionContainer>
 );
 
 Section.propTypes = {

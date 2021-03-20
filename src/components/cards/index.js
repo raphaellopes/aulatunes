@@ -1,4 +1,3 @@
-export * from './base';
+export * from './styles';
 export * from './placeholder';
-export * from './music';
 export * from './card-list';

@@ -52,3 +52,13 @@ export const CardTitle = styled(Title)`
 export const CardSubtitle = styled(TextLabel)`
   color: ${colors.light_30};
 `;
+
+export const CardListContainer = styled.div`
+  margin-top: ${metrics.margin.lg};
+
+  ${Card} {
+    &:not(:last-child) {
+      margin-bottom: ${metrics.margin.md};
+    }
+  }
+`;
