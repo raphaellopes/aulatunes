@@ -57,12 +57,33 @@ export const CardLabel = styled(TextLabel)`
   color: ${colors.light_30};
 `;
 
-export const CardList = styled.div`
-  margin-top: ${metrics.margin.lg};
+export const CardRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    margin-bottom: ${metrics.margin.md};
+  }
 
   ${Card} {
     &:not(:last-child) {
       margin-bottom: ${metrics.margin.md};
     }
   }
+
+  @media ${metrics.media.md} {
+    flex-direction: row;
+    ${Card} {
+      flex-basis: 32.6%;
+      flex-grow: 0;
+      margin-bottom: 0;
+      &:not(:last-child) {
+        margin-right: ${metrics.margin.md};
+        margin-bottom: 0;
+      }
+    }
+  }
+`;
+
+export const CardList = styled.div`
+  margin-top: ${metrics.margin.lg};
 `;

@@ -20,6 +20,7 @@ export const metrics = {
   media: {
     sm: `(min-width: ${screenSizes.sm})`,
     md: `(min-width: ${screenSizes.md})`,
+    lg: `(min-width: ${screenSizes.lg})`,
   },
   borderRadius: {
     sm: '5px',

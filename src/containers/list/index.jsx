@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { metrics } from '../../styles';
+import { chunk } from '../../utils';
 import {
   Card, CardImage, CardContent, CardTitle, CardSubtitle, CardLabel,
-  CardList, Text, CardPlaceholder, CardImagePlaceholder,
+  CardList, Text, CardPlaceholder, CardImagePlaceholder, CardRow,
 } from '../../components';
 import { useFavoritesHook } from '../../store/ducks/favorites';
 
@@ -13,10 +14,12 @@ export const ListContainer = ({
   const favorites = useFavoritesHook();
   const isFavorite = (id) => favorites.data[favoritesFeature].includes(id);
 
-  const mapFavorite = (item) => ({
-    ...item,
-    isFavorite: isFavorite(item.id),
+  const mapFavorite = (card) => ({
+    ...card,
+    isFavorite: isFavorite(card.id),
   });
+
+  const rows = chunk(cards.map(mapFavorite), 3);
 
   const handleClickFavorite = (value) => {
     if (isFavorite(value)) {
@@ -25,14 +28,16 @@ export const ListContainer = ({
       favorites.add(value, favoritesFeature);
     }
   };
+
   const renderLoading = (
-    <div data-testid="loading">
+    <CardRow data-testid="loading">
       <CardPlaceholder />
       <CardPlaceholder />
-    </div>
+      <CardPlaceholder />
+    </CardRow>
   );
 
-  const renderCards = cards.map(mapFavorite).map((card) => {
+  const renderCards = (card) => {
     const {
       id, name, image, artist, category, price, isFavorite: isCardFavorite,
     } = card;
@@ -58,6 +63,15 @@ export const ListContainer = ({
         </CardContent>
       </Card>
     );
+  };
+
+  const renderRows = rows.map((item, index) => {
+    const key = `card-row-${index}`;
+    return (
+      <CardRow key={key}>
+        {item.map(renderCards)}
+      </CardRow>
+    );
   });
 
   const renderEmpty = !loading && !cards.length && (
@@ -66,7 +80,7 @@ export const ListContainer = ({
 
   return (
     <CardList>
-      {loading ? renderLoading : renderCards}
+      {loading ? renderLoading : renderRows}
       {renderEmpty}
     </CardList>
   );
