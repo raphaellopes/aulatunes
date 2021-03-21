@@ -23,6 +23,13 @@ export const albums = [
         },
       },
     ],
+    'im:price': {
+      label: '$8.99',
+      attributes: {
+        amount: '8.99000',
+        currency: 'USD',
+      },
+    },
     id: {
       label: 'https://music.apple.com/us/album/love-hate/1440832200?uo=2',
       attributes: {
@@ -33,6 +40,14 @@ export const albums = [
       label: 'Michael Kiwanuka',
       attributes: {
         href: 'https://music.apple.com/us/artist/michael-kiwanuka/433457346?uo=2',
+      },
+    },
+    category: {
+      attributes: {
+        'im:id': '15',
+        term: 'R&B/Soul',
+        scheme: 'https://music.apple.com/us/genre/music-r-b-soul/id15?uo=2',
+        label: 'R&B/Soul',
       },
     },
   },
@@ -60,6 +75,13 @@ export const albums = [
         },
       },
     ],
+    'im:price': {
+      label: '$9.99',
+      attributes: {
+        amount: '9.99000',
+        currency: 'USD',
+      },
+    },
     id: {
       label: 'https://music.apple.com/us/album/cypress-grove/1474602159?uo=2',
       attributes: {
@@ -70,6 +92,14 @@ export const albums = [
       label: 'Jimmy "Duck" Holmes',
       attributes: {
         href: 'https://music.apple.com/us/artist/jimmy-duck-holmes/265026843?uo=2',
+      },
+    },
+    category: {
+      attributes: {
+        'im:id': '2',
+        term: 'Blues',
+        scheme: 'https://music.apple.com/us/genre/music-blues/id2?uo=2',
+        label: 'Blues',
       },
     },
   },
@@ -100,6 +130,13 @@ export const songs = [
         },
       },
     ],
+    'im:price': {
+      label: '$1.29',
+      attributes: {
+        amount: '1.29000',
+        currency: 'USD',
+      },
+    },
     id: {
       label: 'https://music.apple.com/us/album/leave-the-door-open/1556096966?i=1556097162&uo=2',
       attributes: {
@@ -110,6 +147,14 @@ export const songs = [
       label: 'Bruno Mars, Anderson .Paak & Silk Sonic',
       attributes: {
         href: 'https://music.apple.com/us/artist/bruno-mars/278873078?uo=2',
+      },
+    },
+    category: {
+      attributes: {
+        'im:id': '15',
+        term: 'R&B/Soul',
+        scheme: 'https://music.apple.com/us/genre/music-r-b-soul/id15?uo=2',
+        label: 'R&B/Soul',
       },
     },
   },
@@ -137,6 +182,13 @@ export const songs = [
         },
       },
     ],
+    'im:price': {
+      label: '$0.69',
+      attributes: {
+        amount: '0.69000',
+        currency: 'USD',
+      },
+    },
     id: {
       label: 'https://music.apple.com/us/album/dont-start-now/1484636581?i=1484636829&uo=2',
       attributes: {
@@ -147,6 +199,14 @@ export const songs = [
       label: 'Dua Lipa',
       attributes: {
         href: 'https://music.apple.com/us/artist/dua-lipa/1031397873?uo=2',
+      },
+    },
+    category: {
+      attributes: {
+        'im:id': '14',
+        term: 'Pop',
+        scheme: 'https://music.apple.com/us/genre/music-pop/id14?uo=2',
+        label: 'Pop',
       },
     },
   },

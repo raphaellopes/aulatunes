@@ -21,6 +21,10 @@ export const Text = styled(BaseText)`
   font-size: ${font.size.md};
 `;
 
+export const TextSubtitle = styled(BaseText)`
+  font-size: ${font.size.md};
+`;
+
 export const TextLabel = styled(BaseText)`
   font-size: ${font.size.sm};
 `;

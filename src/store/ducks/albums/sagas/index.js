@@ -25,6 +25,8 @@ export function* albumsData({ payload, meta }) {
       artist,
       image: item['im:image'][1].label,
       searchKey: kebabCase([name, artist].join(' ')),
+      price: item['im:price'].label,
+      category: item.category.attributes.label,
     };
   });
 

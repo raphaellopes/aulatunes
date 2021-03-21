@@ -39,6 +39,8 @@ describe('redux | songs | sagas', () => {
             { label: 'http://some-image-1' },
             { label: 'http://some-image-2' },
           ],
+          'im:price': { label: '$9.99' },
+          category: { attributes: { label: 'Pop' } },
         },
       ];
       const generator = songsData({ payload, meta: 'songs' });
@@ -51,6 +53,8 @@ describe('redux | songs | sagas', () => {
             artist: 'Some Artist',
             image: 'http://some-image-2',
             searchKey: 'some-name-some-artist',
+            price: '$9.99',
+            category: 'Pop',
           },
         ]),
       );

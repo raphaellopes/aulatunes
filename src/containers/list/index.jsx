@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { metrics } from '../../styles';
 import {
-  Card, CardImage, CardContent, CardTitle, CardSubtitle, CardList,
-  Text, CardPlaceholder, CardImagePlaceholder,
+  Card, CardImage, CardContent, CardTitle, CardSubtitle, CardLabel,
+  CardList, Text, CardPlaceholder, CardImagePlaceholder,
 } from '../../components';
 import { useFavoritesHook } from '../../store/ducks/favorites';
 
@@ -32,26 +32,33 @@ export const ListContainer = ({
     </div>
   );
 
-  const renderCards = cards.map(mapFavorite).map((card) => (
-    <Card
-      key={`card-item-${card.id}`}
-      onClick={() => handleClickFavorite(card.id)}
-      variant={card.isFavorite ? 'secondary' : 'default'}
-      data-testid="card"
-    >
-      <CardImage
-        src={card.image}
-        alt={card.name}
-        placeholder={<CardImagePlaceholder />}
-        width={metrics.avatar.md}
-        height={metrics.avatar.md}
-      />
-      <CardContent>
-        <CardTitle data-testid="card-title">{card.name}</CardTitle>
-        <CardSubtitle data-testid="card-subtitle">{`By ${card.artist}`}</CardSubtitle>
-      </CardContent>
-    </Card>
-  ));
+  const renderCards = cards.map(mapFavorite).map((card) => {
+    const {
+      id, name, image, artist, category, price, isFavorite: isCardFavorite,
+    } = card;
+    return (
+      <Card
+        key={`card-item-${id}`}
+        onClick={() => handleClickFavorite(id)}
+        variant={isCardFavorite ? 'secondary' : 'default'}
+        data-testid="card"
+      >
+        <CardImage
+          src={image}
+          alt={name}
+          placeholder={<CardImagePlaceholder />}
+          width={metrics.avatar.md}
+          height={metrics.avatar.md}
+        />
+        <CardContent>
+          <CardTitle data-testid="card-title">{name}</CardTitle>
+          <CardSubtitle data-testid="card-subtitle">{`By ${artist}`}</CardSubtitle>
+          {category && <CardLabel data-testid="card-category">{category}</CardLabel>}
+          {price && <CardLabel data-testid="card-price">{price}</CardLabel>}
+        </CardContent>
+      </Card>
+    );
+  });
 
   const renderEmpty = !loading && !cards.length && (
     <Text data-testid="card-list-empty">{emptyText}</Text>
@@ -71,6 +78,9 @@ ListContainer.propTypes = {
     name: PropTypes.string,
     artist: PropTypes.string,
     image: PropTypes.string,
+    category: PropTypes.string,
+    price: PropTypes.string,
+    isFavorite: PropTypes.bool,
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   emptyText: PropTypes.string,

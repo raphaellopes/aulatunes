@@ -54,11 +54,16 @@ describe('App | full app rendering/navigating', () => {
     test('should render the albums cards as the first load', async () => {
       mockCall(albums);
       renderWithRouter(<App />);
-      const cardsTitle = await waitFor(() => screen.getAllByTestId('card-title').map(mapCardText));
-      const cardsSubtitle = await waitFor(() => screen.getAllByTestId('card-subtitle').map(mapCardText));
+      await waitFor(() => screen.getAllByTestId('card'));
+      const titles = screen.getAllByTestId('card-title').map(mapCardText);
+      const subtitles = screen.getAllByTestId('card-subtitle').map(mapCardText);
+      const categories = screen.getAllByTestId('card-category').map(mapCardText);
+      const prices = screen.getAllByTestId('card-price').map(mapCardText);
       expect(screen.queryByTestId('loading')).not.toBeInTheDocument();
-      expect(cardsTitle).toEqual(['Love & Hate', 'Cypress Grove']);
-      expect(cardsSubtitle).toEqual(['By Michael Kiwanuka', 'By Jimmy "Duck" Holmes']);
+      expect(titles).toEqual(['Love & Hate', 'Cypress Grove']);
+      expect(subtitles).toEqual(['By Michael Kiwanuka', 'By Jimmy "Duck" Holmes']);
+      expect(categories).toEqual(['R&B/Soul', 'Blues']);
+      expect(prices).toEqual(['$8.99', '$9.99']);
     });
 
     test('should add a favorite album and remove it from same route', async () => {
@@ -141,16 +146,21 @@ describe('App | full app rendering/navigating', () => {
     test('should render the songs when user clicks from navigation', async () => {
       mockCall(songs);
       renderWithRouter(<App />);
-      await waitFor(() => screen.getAllByTestId('card').map((card) => card.textContent));
+      await waitFor(() => screen.getAllByTestId('card'));
       const button = screen.getByTestId('menu-option-songs');
       fireEvent.click(button);
       expect(screen.getByTestId('loading')).toBeInTheDocument();
       expect(screen.getByTestId('menu-option-songs-active')).toBeInTheDocument();
-      const cardsTitle = await waitFor(() => screen.getAllByTestId('card-title').map(mapCardText));
-      const cardsSubtitle = await waitFor(() => screen.getAllByTestId('card-subtitle').map(mapCardText));
+      await waitFor(() => screen.getAllByTestId('card'));
+      const titles = screen.getAllByTestId('card-title').map(mapCardText);
+      const subtitles = screen.getAllByTestId('card-subtitle').map(mapCardText);
+      const categories = screen.getAllByTestId('card-category').map(mapCardText);
+      const prices = screen.getAllByTestId('card-price').map(mapCardText);
       expect(screen.queryByTestId('loading')).not.toBeInTheDocument();
-      expect(cardsTitle).toEqual(['Leave The Door Open', "Don't Start Now"]);
-      expect(cardsSubtitle).toEqual(['By Bruno Mars, Anderson .Paak & Silk Sonic', 'By Dua Lipa']);
+      expect(titles).toEqual(['Leave The Door Open', "Don't Start Now"]);
+      expect(subtitles).toEqual(['By Bruno Mars, Anderson .Paak & Silk Sonic', 'By Dua Lipa']);
+      expect(categories).toEqual(['R&B/Soul', 'Pop']);
+      expect(prices).toEqual(['$1.29', '$0.69']);
     });
 
     test('should add a favorite song and remove it from same route', async () => {
