@@ -38,6 +38,7 @@ describe('redux | songs | sagas', () => {
           'im:image': [
             { label: 'http://some-image-1' },
             { label: 'http://some-image-2' },
+            { label: 'http://some-image-3' },
           ],
           'im:price': { label: '$9.99' },
           category: { attributes: { label: 'Pop' } },
@@ -51,7 +52,7 @@ describe('redux | songs | sagas', () => {
             id: 'A1',
             name: 'Some Name',
             artist: 'Some Artist',
-            image: 'http://some-image-2',
+            image: 'http://some-image-3',
             searchKey: 'some-name-some-artist-pop',
             price: '$9.99',
             category: 'Pop',

@@ -14,6 +14,11 @@ export const Content = styled.div`
   flex: 1;
   max-width: ${metrics.screenSizes.lg};
   margin: auto;
+  padding: ${metrics.padding.md};
+
+  @media ${metrics.media.md} {
+    padding: ${metrics.padding.lg};
+  }
 `;
 
 export const Logo = styled.img`

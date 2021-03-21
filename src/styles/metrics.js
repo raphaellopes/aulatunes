@@ -29,5 +29,6 @@ export const metrics = {
   },
   avatar: {
     md: '60px',
+    lg: '170px',
   },
 };

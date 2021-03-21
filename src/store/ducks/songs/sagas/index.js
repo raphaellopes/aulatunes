@@ -24,7 +24,7 @@ export function* songsData({ payload, meta }) {
       id: item.id.attributes['im:id'],
       name,
       artist,
-      image: item['im:image'][1].label,
+      image: item['im:image'][2].label,
       searchKey: kebabCase([name, artist, category].join(' ')),
       price: item['im:price'].label,
       category,

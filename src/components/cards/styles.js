@@ -42,6 +42,13 @@ export const CardContent = styled.div`
 export const CardImage = styled(LazyLoadImage)`
   margin-right: ${metrics.margin.md};
   border-radius: ${metrics.borderRadius.sm};
+  width: ${metrics.avatar.md};
+  height: ${metrics.avatar.md};
+
+  @media ${metrics.media.md} {
+    width: ${metrics.avatar.lg};
+    height: ${metrics.avatar.lg};
+  }
 `;
 
 export const CardTitle = styled(Title)`
@@ -76,6 +83,13 @@ export const CardRow = styled.div`
       flex-basis: 32.6%;
       flex-grow: 0;
       margin-bottom: 0;
+      flex-direction: column;
+
+      > img, > span {
+        margin: ${metrics.margin.lg} auto;
+        align-self: center;
+      }
+
       &:not(:last-child) {
         margin-right: ${metrics.margin.md};
         margin-bottom: 0;

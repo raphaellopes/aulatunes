@@ -8,6 +8,11 @@ export const CardImagePlaceholder = styled(Placeholder)`
   margin-right: ${metrics.margin.md};
   width: ${metrics.avatar.md};
   height: ${metrics.avatar.md};
+
+  @media ${metrics.media.md} {
+    width: ${metrics.avatar.lg};
+    height: ${metrics.avatar.lg};
+  }
 `;
 
 export const CardTitlePlaceholder = styled(Placeholder)`

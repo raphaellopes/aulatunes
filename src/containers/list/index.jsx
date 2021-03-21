@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { metrics } from '../../styles';
 import { chunk } from '../../utils';
 import {
   Card, CardImage, CardContent, CardTitle, CardSubtitle, CardLabel,
@@ -52,8 +51,8 @@ export const ListContainer = ({
           src={image}
           alt={name}
           placeholder={<CardImagePlaceholder />}
-          width={metrics.avatar.md}
-          height={metrics.avatar.md}
+          width="100%"
+          height="100%"
         />
         <CardContent>
           <CardTitle data-testid="card-title">{name}</CardTitle>
