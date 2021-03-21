@@ -1,15 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { metrics } from '../../styles';
-import { Text } from '../thypography';
 import {
-  Card, CardImage, CardContent, CardTitle, CardSubtitle, CardListContainer,
-} from './styles';
-import { CardPlaceholder, CardImagePlaceholder } from './placeholder';
+  Card, CardImage, CardContent, CardTitle, CardSubtitle, CardList,
+  Text, CardPlaceholder, CardImagePlaceholder,
+} from '../../components';
+import { useFavoritesHook } from '../../store/ducks/favorites';
 
-export const CardList = ({
-  cards, loading, emptyText, onClickFavorite,
+export const ListContainer = ({
+  cards, loading, emptyText, favoritesFeature,
 }) => {
+  const favorites = useFavoritesHook();
+  const isFavorite = (id) => favorites.data[favoritesFeature].includes(id);
+
+  const mapFavorite = (item) => ({
+    ...item,
+    isFavorite: isFavorite(item.id),
+  });
+
+  const handleClickFavorite = (value) => {
+    if (isFavorite(value)) {
+      favorites.remove(value, favoritesFeature);
+    } else {
+      favorites.add(value, favoritesFeature);
+    }
+  };
   const renderLoading = (
     <div data-testid="loading">
       <CardPlaceholder />
@@ -17,10 +32,10 @@ export const CardList = ({
     </div>
   );
 
-  const renderCards = cards.map((card) => (
+  const renderCards = cards.map(mapFavorite).map((card) => (
     <Card
       key={`card-item-${card.id}`}
-      onClick={() => onClickFavorite(card.id)}
+      onClick={() => handleClickFavorite(card.id)}
       variant={card.isFavorite ? 'secondary' : 'default'}
       data-testid="card"
     >
@@ -43,14 +58,14 @@ export const CardList = ({
   );
 
   return (
-    <CardListContainer>
+    <CardList>
       {loading ? renderLoading : renderCards}
       {renderEmpty}
-    </CardListContainer>
+    </CardList>
   );
 };
 
-CardList.propTypes = {
+ListContainer.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
@@ -59,9 +74,9 @@ CardList.propTypes = {
   })).isRequired,
   loading: PropTypes.bool.isRequired,
   emptyText: PropTypes.string,
-  onClickFavorite: PropTypes.func.isRequired,
+  favoritesFeature: PropTypes.string.isRequired,
 };
 
-CardList.defaultProps = {
+ListContainer.defaultProps = {
   emptyText: '',
 };

@@ -53,7 +53,7 @@ export const CardSubtitle = styled(TextLabel)`
   color: ${colors.light_30};
 `;
 
-export const CardListContainer = styled.div`
+export const CardList = styled.div`
   margin-top: ${metrics.margin.lg};
 
   ${Card} {

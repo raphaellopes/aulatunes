@@ -4,19 +4,13 @@ import { searchFilter } from '../../utils';
 import { useApiHooks, API_FEAT_SONGS } from '../../store/ducks/api';
 import { useGeneralHook } from '../../store/ducks/general';
 import { useSongsHook } from '../../store/ducks/songs';
-import { useFavoritesHook, FAVORITE_SONGS } from '../../store/ducks/favorites';
-import { CardList } from '../../components';
+import { FAVORITE_SONGS } from '../../store/ducks/favorites';
+import { ListContainer } from '../../containers';
 
 const Songs = () => {
   const api = useApiHooks();
   const { setActive, filter } = useGeneralHook();
   const { data: songs, loading } = useSongsHook();
-  const favorites = useFavoritesHook();
-
-  const mapFavorite = (item) => ({
-    ...item,
-    isFavorite: favorites.data.songs.includes(item.id),
-  });
 
   useEffect(() => {
     setActive(ROUTE_SONGS);
@@ -25,20 +19,12 @@ const Songs = () => {
     }
   }, []);
 
-  const handleClickFavorite = (value) => {
-    if (favorites.data.songs.includes(value)) {
-      favorites.remove(value, FAVORITE_SONGS);
-    } else {
-      favorites.add(value, FAVORITE_SONGS);
-    }
-  };
-
   return (
-    <CardList
+    <ListContainer
       loading={loading}
-      cards={songs.filter(searchFilter(filter.search)).map(mapFavorite)}
+      cards={songs.filter(searchFilter(filter.search))}
       emptyText="No results for Songs"
-      onClickFavorite={handleClickFavorite}
+      favoritesFeature={FAVORITE_SONGS}
     />
   );
 };

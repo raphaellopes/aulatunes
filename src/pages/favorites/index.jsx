@@ -5,7 +5,8 @@ import { useGeneralHook } from '../../store/ducks/general';
 import { useAlbumsHook } from '../../store/ducks/albums';
 import { useSongsHook } from '../../store/ducks/songs';
 import { useFavoritesHook, FAVORITE_ALBUMS, FAVORITE_SONGS } from '../../store/ducks/favorites';
-import { CardList, Section } from '../../components';
+import { Section } from '../../components';
+import { ListContainer } from '../../containers';
 
 const Favorites = () => {
   const { setActive, filter } = useGeneralHook();
@@ -21,13 +22,13 @@ const Favorites = () => {
     setActive(ROUTE_FAVORITES);
   }, []);
 
-  const renderSection = (title, data, group) => (
+  const renderSection = (title, data, favoritesFeature) => (
     <Section title={title}>
-      <CardList
+      <ListContainer
         loading={false}
         cards={data.filter(searchFilter(filter.search))}
         emptyText={`No results for Favorites ${title}`}
-        onClickFavorite={(value) => favorites.remove(value, group)}
+        favoritesFeature={favoritesFeature}
       />
     </Section>
   );
