@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | cards should render the Card 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgba(49,64,92,.1);
+  background-color: #ffffff;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the Card with cursor 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgba(49,64,92,.1);
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the Card with secondary variant 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgba(49,64,92,.1);
+  background-color: #00E0B7;
+}
+
+.c0 p {
+  color: #282b31;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the CardContent 1`] = `
+.c0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the CardImage 1`] = `
+.c0 {
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+<div>
+  <img
+    alt="some text"
+    class="c0"
+    src="http://some-image"
+  />
+</div>
+`;
+
+exports[`components | cards should render the CardImagePlaceholder 1`] = `
+.c0 {
+  display: inline-block;
+  background-color: #d6d6d7;
+  border-radius: 5px;
+}
+
+.c1 {
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+@media (min-width:768px) {
+  .c1 {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+<div>
+  <span
+    class="c0 c1"
+  />
+</div>
+`;
+
+exports[`components | cards should render the CardLabel 1`] = `
+.c0 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: 14px;
+}
+
+.c2 {
+  color: #bdbcbe;
+}
+
+<div>
+  <p
+    class="c0 c1 c2"
+  >
+    Some text
+  </p>
+</div>
+`;
+
+exports[`components | cards should render the CardList 1`] = `
+.c0 {
+  margin-top: 16px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the CardPlaceholder 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgba(49,64,92,.1);
+  background-color: #ffffff;
+}
+
+.c3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.c1 {
+  display: inline-block;
+  background-color: #d6d6d7;
+  border-radius: 5px;
+}
+
+.c2 {
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.c4 {
+  height: 26px;
+  width: 90%;
+}
+
+.c5 {
+  height: 16px;
+  width: 70%;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <span
+      class="c1 c2"
+    />
+    <div
+      class="c3"
+    >
+      <span
+        class="c1 c4"
+      />
+      <span
+        class="c1 c5"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the CardRow 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c0:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.c0 .sc-gKsewC:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  .c0 .sc-gKsewC {
+    -webkit-flex-basis: 32.6%;
+    -ms-flex-preferred-size: 32.6%;
+    flex-basis: 32.6%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin-bottom: 0;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .c0 .sc-gKsewC > img,
+  .c0 .sc-gKsewC > span {
+    margin: 16px auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+
+  .c0 .sc-gKsewC:not(:last-child) {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Some text
+  </div>
+</div>
+`;
+
+exports[`components | cards should render the CardSubtitle 1`] = `
+.c0 {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.c1 {
+  font-size: 16px;
+}
+
+.c2 {
+  color: #bdbcbe;
+  margin-bottom: 5px;
+}
+
+<div>
+  <p
+    class="c0 c1 c2"
+  >
+    Some text
+  </p>
+</div>
+`;
+
+exports[`components | cards should render the CardSubtitlePlaceholder 1`] = `
+.c0 {
+  display: inline-block;
+  background-color: #d6d6d7;
+  border-radius: 5px;
+}
+
+.c1 {
+  height: 16px;
+  width: 70%;
+}
+
+<div>
+  <span
+    class="c0 c1"
+  />
+</div>
+`;
+
+exports[`components | cards should render the CardTitle 1`] = `
+.c0 {
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.c1 {
+  font-size: 22px;
+}
+
+.c2 {
+  color: #31405c;
+}
+
+<div>
+  <h1
+    class="c0 c1 c2"
+  >
+    Some text
+  </h1>
+</div>
+`;
+
+exports[`components | cards should render the CardTitlePlaceholder 1`] = `
+.c0 {
+  display: inline-block;
+  background-color: #d6d6d7;
+  border-radius: 5px;
+}
+
+.c1 {
+  height: 26px;
+  width: 90%;
+}
+
+<div>
+  <span
+    class="c0 c1"
+  />
+</div>
+`;

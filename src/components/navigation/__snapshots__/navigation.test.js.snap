@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | navigation should render the Navigation 1`] = `
+.c1 {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid #791abe;
+  background-color: #791abe;
+  color: #ffffff;
+}
+
+.c3 {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #d6d6d7;
+  color: #31405c;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 0;
+}
+
+.c2:not(:last-child) {
+  margin-right: 10px;
+}
+
+<div>
+  <nav
+    class="c0"
+  >
+    <button
+      class="c1 c2"
+      data-testid="menu-option-some-option-1-active"
+    >
+      Some option 1
+    </button>
+    <button
+      class="c3 c2"
+      data-testid="menu-option-some-option-2"
+    >
+      Some option-2
+    </button>
+  </nav>
+</div>
+`;

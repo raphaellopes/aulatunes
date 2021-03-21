@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | inputs should render the Input default 1`] = `
+.c0 {
+  border: 2px solid #d6d6d7;
+  padding: 10px;
+  border-radius: 5px;
+  color: #31405c;
+  width: 100%;
+}
+
+.c0:focus {
+  border-color: #791abe;
+}
+
+<div>
+  <input
+    class="c0"
+  />
+</div>
+`;

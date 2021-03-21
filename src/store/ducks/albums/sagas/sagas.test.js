@@ -12,7 +12,7 @@ describe('redux | albums | sagas', () => {
   });
 
   describe('albumsFetch()', () => {
-    test('valid', () => {
+    test('should listen the API fetch and set the status with true value', () => {
       const payload = 'albums';
       const generator = albumsFetch({ payload });
       const expected = put(
@@ -21,7 +21,7 @@ describe('redux | albums | sagas', () => {
       expect(generator.next().value).toEqual(expected);
     });
 
-    test('invalid', () => {
+    test('should not dispatch any action if payload is not albums', () => {
       const payload = 'other';
       const generator = albumsFetch({ payload });
       expect(generator.next().value).toBeUndefined();
@@ -29,7 +29,7 @@ describe('redux | albums | sagas', () => {
   });
 
   describe('albumsData()', () => {
-    test('valid', () => {
+    test('should tranform the API data to albums reducer format', () => {
       const payload = [
         {
           id: { attributes: { 'im:id': 'A1' } },
@@ -62,7 +62,7 @@ describe('redux | albums | sagas', () => {
       expect(generator.next().value).toEqual(expected);
     });
 
-    test('invalid', () => {
+    test('should not dispatch any action if payload is not albums', () => {
       const payload = [];
       const meta = 'other';
       const generator = albumsData({ payload, meta });

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components | placeholder should render the Placeholder 1`] = `
+.c0 {
+  display: inline-block;
+  background-color: #d6d6d7;
+  border-radius: 5px;
+}
+
+<div>
+  <span
+    class="c0"
+  />
+</div>
+`;
