@@ -19,14 +19,15 @@ export function* songsData({ payload, meta }) {
   const data = payload.map((item) => {
     const name = item['im:name'].label;
     const artist = item['im:artist'].label;
+    const category = item.category.attributes.label;
     return {
       id: item.id.attributes['im:id'],
       name,
       artist,
       image: item['im:image'][1].label,
-      searchKey: kebabCase([name, artist].join(' ')),
+      searchKey: kebabCase([name, artist, category].join(' ')),
       price: item['im:price'].label,
-      category: item.category.attributes.label,
+      category,
     };
   });
 

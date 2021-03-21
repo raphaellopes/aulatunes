@@ -52,7 +52,7 @@ describe('redux | songs | sagas', () => {
             name: 'Some Name',
             artist: 'Some Artist',
             image: 'http://some-image-2',
-            searchKey: 'some-name-some-artist',
+            searchKey: 'some-name-some-artist-pop',
             price: '$9.99',
             category: 'Pop',
           },
