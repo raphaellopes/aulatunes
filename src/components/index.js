@@ -1,6 +1,7 @@
 export * from './buttons';
 export * from './cards';
 export * from './header';
+export * from './icons';
 export * from './inputs';
 export * from './layout';
 export * from './navigation';

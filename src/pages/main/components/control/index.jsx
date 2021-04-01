@@ -52,6 +52,7 @@ ControlComponent.propTypes = {
   menuOptions: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.string,
+    icon: PropTypes.string,
   })).isRequired,
   menuOptionActive: PropTypes.string.isRequired,
   onClickMenuOption: PropTypes.func.isRequired,

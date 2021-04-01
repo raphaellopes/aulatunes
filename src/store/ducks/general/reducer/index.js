@@ -6,9 +6,9 @@ export const initialState = {
   menu: {
     active: '',
     options: [
-      { label: 'Albums', value: ROUTE_ALBUMS },
-      { label: 'Songs', value: ROUTE_SONGS },
-      { label: 'Favorites', value: ROUTE_FAVORITES },
+      { label: 'Albums', value: ROUTE_ALBUMS, icon: 'compact-disc' },
+      { label: 'Songs', value: ROUTE_SONGS, icon: 'music' },
+      { label: 'Favorites', value: ROUTE_FAVORITES, icon: 'star' },
     ],
   },
   filter: {

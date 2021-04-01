@@ -21,7 +21,7 @@ export const Text = styled(BaseText)`
   font-size: ${font.size.md};
 `;
 
-export const TextSubtitle = styled(BaseText)`
+export const TextDescription = styled(BaseText)`
   font-size: ${font.size.md};
 `;
 

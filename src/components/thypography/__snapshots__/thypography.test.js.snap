@@ -19,14 +19,14 @@ exports[`components | thypography should render the Text 1`] = `
 </div>
 `;
 
-exports[`components | thypography should render the TextLabel 1`] = `
+exports[`components | thypography should render the TextDescription 1`] = `
 .c0 {
   font-family: sans-serif;
   font-weight: 400;
 }
 
 .c1 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 <div>
@@ -38,14 +38,14 @@ exports[`components | thypography should render the TextLabel 1`] = `
 </div>
 `;
 
-exports[`components | thypography should render the TextSubtitle 1`] = `
+exports[`components | thypography should render the TextLabel 1`] = `
 .c0 {
   font-family: sans-serif;
   font-weight: 400;
 }
 
 .c1 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 <div>

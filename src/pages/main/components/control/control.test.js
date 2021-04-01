@@ -4,8 +4,8 @@ import { ControlComponent } from './index';
 
 describe('pages | main | components', () => {
   const options = [
-    { label: 'Some option 1', value: 'some-option-1' },
-    { label: 'Some option-2', value: 'some-option-2' },
+    { label: 'Some option 1', value: 'some-option-1', icon: 'music' },
+    { label: 'Some option-2', value: 'some-option-2', icon: 'star' },
   ];
 
   describe('ControlComponent', () => {

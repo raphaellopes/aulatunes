@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import theme from 'styled-theming';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { colors, metrics } from '../../styles';
-import { Title, TextSubtitle, TextLabel } from '../thypography';
+import { Title, TextDescription, TextLabel } from '../thypography';
 
 const cardStyle = theme.variants('mode', 'variant', {
   default: {
@@ -55,7 +55,7 @@ export const CardTitle = styled(Title)`
   color: ${colors.dark_10};
 `;
 
-export const CardSubtitle = styled(TextSubtitle)`
+export const CardSubtitle = styled(TextDescription)`
   color: ${colors.light_30};
   margin-bottom: ${metrics.margin.sm};
 `;

@@ -45,12 +45,18 @@ exports[`components | navigation should render the Navigation 1`] = `
       class="c1 c2"
       data-testid="menu-option-some-option-1-active"
     >
+      <i
+        class="fa music"
+      />
       Some option 1
     </button>
     <button
       class="c3 c2"
       data-testid="menu-option-some-option-2"
     >
+      <i
+        class="fa star"
+      />
       Some option-2
     </button>
   </nav>
