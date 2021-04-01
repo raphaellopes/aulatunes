@@ -13,7 +13,7 @@ exports[`components | navigation should render the Navigation 1`] = `
   color: #ffffff;
 }
 
-.c4 {
+.c3 {
   background-color: transparent;
   padding: 10px;
   border-radius: 20px;
@@ -37,10 +37,6 @@ exports[`components | navigation should render the Navigation 1`] = `
   margin-right: 10px;
 }
 
-.c3 {
-  margin-right: 5px;
-}
-
 <div>
   <nav
     class="c0"
@@ -49,42 +45,18 @@ exports[`components | navigation should render the Navigation 1`] = `
       class="c1 c2"
       data-testid="menu-option-some-option-1-active"
     >
-      <svg
-        aria-hidden="true"
-        class="svg-inline--fa fa-music fa-w-16 c3"
-        data-icon="music"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"
-          fill="currentColor"
-        />
-      </svg>
+      <i
+        class="fa music"
+      />
       Some option 1
     </button>
     <button
-      class="c4 c2"
+      class="c3 c2"
       data-testid="menu-option-some-option-2"
     >
-      <svg
-        aria-hidden="true"
-        class="svg-inline--fa fa-star fa-w-18 c3"
-        data-icon="star"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        viewBox="0 0 576 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-          fill="currentColor"
-        />
-      </svg>
+      <i
+        class="fa star"
+      />
       Some option-2
     </button>
   </nav>
