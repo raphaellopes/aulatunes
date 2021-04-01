@@ -1,44 +1,64 @@
-### Objective
+# AulaTunes - Raphael Lopes
 
-Aula Education is branching into the music business and needs a new website. Build it using JavaScript and React.
+Technical test written for Aula Education. The objective was build React
+project showing the top 100 albums and top 100 songs based on the json feed 
+from iTunes
 
-### Brief
+[Demo](https://aula-tech-test.herokuapp.com/albums)
 
-In a fictional world, Aula Education is branching into the music business and we need a new a website. This website needs to display the top 100 songs based on the iTunes API. This code challenge allows you to choose your own path and lets you flaunt your creative panache and technical skills along the way.
+## Prerequisites
+- Node 15.x
+- NPM 7.x
 
-In order to help you fit the test in around other commitments, there's no time limit for the test. However, please don't feel the need to spend more than 2-3 hours total working on your solution. We encourage you follow the instructions carefully and try to keep things simple.
 
-### Tasks
+## Running the project 
 
--   Implement assignment using:
-    -   Language: **JavaScript**
-    -   Framework: **React**
--   The application should be a client-side SPA
--   Show top 100 albums based on the json feed here: `https://itunes.apple.com/us/rss/topalbums/limit=100/json`
--   Allow the user to select the feed type from `topalbums` and `topsongs` (the topsongs URL is `https://itunes.apple.com/us/rss/topsongs/limit=100/json`)
--   A simple design (bonus points for responsive design but this is not essential)
--   A good user experience
--   Allow the top 100 to be searchable
--   Provide tests for your application (we prefer a behavioural approach like the one emphasised by React Testing Library)
--   Surprise us! Add a feature that you think would work well here (for instance, advanced search, integration with another API, a "Favorite" functionality)
-    -   Describe the feature in a separate markdown file
+### Node
 
-### Deliverables
+```
+# install the dependencies
+yarn
 
-Make sure to include all source code in the repository.
+# start the project
+yarn start
+```
 
-### Evaluation Criteria
+The project will be available on [localhost:3000](http://localhost:3000/)
 
--   We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program.
--   Simplicty: is the solution appropriate for the complexity of the problem?
--   Completeness: were the instructions followed?
--   Correctness: does the functionality act in sensible, thought-out ways?
--   Testing: is the app adequately tested?
 
-### CodeSubmit
+### Docker
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+If you have docker and docker-compose you can use the options below:
 
-All the best and happy coding,
+#### for development
+```
+docker-compose up -d --build
+```
+The project will be available on [localhost:3000](http://localhost:3000/)
 
-The Aula Education Team
+
+#### production build
+```
+docker-compose -f docker-compose.prod.yml up -d --build
+```
+The project will be available on [localhost](http://localhost:80/)
+
+
+### Tests
+```
+# for development with watch
+yarn test
+
+# to see the coverage
+yarn test:coverage
+```
+
+
+## How it works
+  - The site lists the top 100 albums using the iTunes API
+  - The site has 3 pages: `albuns`, `songs` and `favorites`
+  - When the user clicks a card from the `albums` or `songs` page, it is selected as `favorite` and its color changes
+  - When the user clicks a card in the `favorites` page, it is removed from favorites
+  - The search bar can be used on all pages and a clear button appears after text has been entered.
+  -  The site is responsive. On mobile the entries are displayed a single row list. When the screen is `768px` or higher the entries are displayed in a three-row grid
+  
