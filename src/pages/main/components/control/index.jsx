@@ -24,7 +24,7 @@ export const ControlComponent = ({
     <InputWrapper>
       <Input
         data-testid="search"
-        placeholder="Search"
+        placeholder="Filter rendered cards"
         value={search}
         onChange={handleChangeSearch}
       />

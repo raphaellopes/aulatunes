@@ -57,8 +57,8 @@ export const ListContainer = ({
         <CardContent>
           <CardTitle data-testid="card-title">{name}</CardTitle>
           <CardSubtitle data-testid="card-subtitle">{`By ${artist}`}</CardSubtitle>
-          {category && <CardLabel data-testid="card-category">{category}</CardLabel>}
-          {price && <CardLabel data-testid="card-price">{price}</CardLabel>}
+          <CardLabel data-testid="card-category">{category}</CardLabel>
+          <CardLabel data-testid="card-price">{price}</CardLabel>
         </CardContent>
       </Card>
     );
