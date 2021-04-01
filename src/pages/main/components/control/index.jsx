@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Navigation, Input } from '../../../../components';
+import { Navigation, Input, Icon } from '../../../../components';
 import { Container, InputWrapper, ClearButton } from './styles';
 
 export const ControlComponent = ({
@@ -30,7 +30,7 @@ export const ControlComponent = ({
       />
       {search.length > 0 && (
         <ClearButton data-testid="search-clear" onClick={handleClickSearchClear}>
-          x
+          <Icon icon="times" />
         </ClearButton>
       )}
     </InputWrapper>
